@@ -7,20 +7,22 @@
     <meta name="description" content="Portfolio officiel de Kouassi Bignon, spécialiste en branding, communication digitale, direction artistique, création de contenu et marketing digital.">
     <meta name="author" content="Kouassi Bignon">
     <meta name="keywords" content="Kouassi Bignon, Brand Designer, Communication Digitale, Direction Artistique, Yamoussoukro, Côte d'Ivoire, Infographe, Content Creator">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://kouassibignon.com/">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://kouassibignon.com/">
     <meta property="og:title" content="KOUASSI BIGNON | Brand Designer | Digital Communication Specialist">
     <meta property="og:description" content="Portfolio officiel de Kouassi Bignon, spécialiste en branding, communication digitale, direction artistique, création de contenu et marketing digital.">
-    <meta property="og:image" content="Photo.jpg">
+    <meta property="og:image" content="https://kouassibignon.com/Photo.jpg">
     <meta property="og:locale" content="fr_CI">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="KOUASSI BIGNON | Brand Designer | Digital Communication Specialist">
     <meta name="twitter:description" content="Portfolio officiel de Kouassi Bignon — Branding, Communication Digitale, Direction Artistique.">
-    <meta name="twitter:image" content="Photo.jpg">
+    <meta name="twitter:image" content="https://kouassibignon.com/Photo.jpg">
 
     <!-- JSON-LD Schema.org Person -->
     <script type="application/ld+json">
@@ -131,6 +133,12 @@
         img { max-width: 100%; display: block; }
         button { font-family: inherit; cursor: pointer; border: none; background: none; }
 
+        /* Focus visible for accessibility */
+        a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -150,7 +158,9 @@
             transition: transform 0.15s var(--ease), opacity 0.15s;
             transform: translate(-50%, -50%);
             mix-blend-mode: difference;
+            opacity: 0;
         }
+        .cursor.visible { opacity: 1; }
         .cursor-dot {
             position: fixed;
             width: 4px; height: 4px;
@@ -159,7 +169,9 @@
             pointer-events: none;
             z-index: 99999;
             transform: translate(-50%, -50%);
+            opacity: 0;
         }
+        .cursor-dot.visible { opacity: 1; }
         .cursor.hover { transform: translate(-50%, -50%) scale(2.5); border-color: var(--accent-light); }
 
         /* ============================================
@@ -177,7 +189,12 @@
             font-family: var(--font-heading);
             font-size: 2.5rem; font-weight: 700;
             letter-spacing: -1px;
+            color: var(--pure-white);
             opacity: 0; transform: translateY(20px);
+        }
+        .loader-name.show {
+            opacity: 1; transform: translateY(0);
+            transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
         }
         .loader-bar {
             width: 200px; height: 2px;
@@ -186,11 +203,15 @@
             overflow: hidden;
             opacity: 0;
         }
+        .loader-bar.show { opacity: 1; transition: opacity 0.4s var(--ease); }
         .loader-bar-fill {
             width: 0; height: 100%;
             background: var(--accent);
             border-radius: 1px;
-            transition: width 1.2s var(--ease);
+        }
+        .loader-bar-fill.animate {
+            width: 100%;
+            transition: width 1s var(--ease);
         }
 
         /* ============================================
@@ -237,6 +258,7 @@
         .nav-links a:hover { color: var(--pure-white); }
         .nav-links a:hover::after { width: 100%; }
         .nav-cta {
+            display: inline-block;
             padding: 10px 24px;
             background: var(--accent);
             color: var(--pure-white);
@@ -249,17 +271,20 @@
             background: var(--accent-light);
             box-shadow: 0 4px 25px var(--accent-glow);
             transform: translateY(-1px);
+            color: var(--pure-white);
         }
         .nav-burger {
             display: none;
             flex-direction: column; gap: 6px;
             cursor: pointer; padding: 8px;
+            background: none; border: none;
         }
         .nav-burger span {
             width: 24px; height: 2px;
             background: var(--pure-white);
             transition: all 0.3s var(--ease);
             transform-origin: center;
+            display: block;
         }
         .nav-burger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
         .nav-burger.open span:nth-child(2) { opacity: 0; }
@@ -297,8 +322,7 @@
         .hero-bg {
             position: absolute; inset: 0; z-index: 0;
         }
-        .hero-bg::before {
-            content: '';
+        .hero-glow-1 {
             position: absolute;
             top: -30%; right: -20%;
             width: 800px; height: 800px;
@@ -306,9 +330,9 @@
             filter: blur(120px);
             opacity: 0.4;
             animation: heroGlow 8s ease-in-out infinite alternate;
+            will-change: transform;
         }
-        .hero-bg::after {
-            content: '';
+        .hero-glow-2 {
             position: absolute;
             bottom: -20%; left: -10%;
             width: 600px; height: 600px;
@@ -316,6 +340,7 @@
             filter: blur(100px);
             opacity: 0.3;
             animation: heroGlow 10s ease-in-out infinite alternate-reverse;
+            will-change: transform;
         }
         @keyframes heroGlow {
             0% { transform: translate(0, 0) scale(1); }
@@ -357,6 +382,7 @@
             background: #4ade80;
             border-radius: 50%;
             animation: pulse 2s ease-in-out infinite;
+            flex-shrink: 0;
         }
         @keyframes pulse {
             0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(74,222,128,0.4); }
@@ -411,6 +437,7 @@
             background: var(--accent-light);
             box-shadow: 0 8px 40px var(--accent-glow);
             transform: translateY(-2px);
+            color: var(--pure-white);
         }
         .btn-outline {
             background: transparent;
@@ -507,6 +534,7 @@
             content: '';
             width: 30px; height: 1.5px;
             background: var(--accent);
+            flex-shrink: 0;
         }
         .section-title {
             font-family: var(--font-heading);
@@ -710,7 +738,7 @@
             aspect-ratio: 16/10;
             transition: all 0.4s var(--ease);
         }
-        .portfolio-card:hover {
+        .portfolio-card:hover, .portfolio-card:focus-visible {
             border-color: rgba(124,92,252,0.3);
             transform: translateY(-6px);
             box-shadow: 0 20px 60px rgba(0,0,0,0.4);
@@ -722,6 +750,7 @@
             color: var(--accent);
             opacity: 0.06;
             transition: all 0.4s;
+            pointer-events: none;
         }
         .portfolio-card:hover .portfolio-card-bg { opacity: 0.1; transform: scale(1.1); }
         .portfolio-card-content {
@@ -731,6 +760,7 @@
             padding: 36px;
             background: linear-gradient(180deg, transparent 30%, rgba(5,5,5,0.8) 100%);
             z-index: 2;
+            pointer-events: none;
         }
         .portfolio-card-cat {
             display: inline-flex; align-items: center; gap: 6px;
@@ -771,6 +801,7 @@
             font-size: 0.9rem;
             transition: all 0.3s;
             z-index: 3;
+            pointer-events: none;
         }
         .portfolio-card:hover .portfolio-card-arrow {
             background: var(--accent);
@@ -796,7 +827,7 @@
             aspect-ratio: 16/9;
             transition: all 0.4s var(--ease);
         }
-        .video-card:hover {
+        .video-card:hover, .video-card:focus-visible {
             border-color: rgba(124,92,252,0.3);
             transform: translateY(-4px);
             box-shadow: 0 20px 60px rgba(0,0,0,0.4);
@@ -1029,7 +1060,7 @@
             text-align: center;
             color: var(--gray);
         }
-        .cv-placeholder i { font-size: 4rem; color: var(--accent); opacity: .2; margin-bottom: 16px; }
+        .cv-placeholder i { font-size: 4rem; color: var(--accent); opacity: .2; margin-bottom: 16px; display: block; }
         .cv-info h3 {
             font-family: var(--font-heading);
             font-size: 2rem;
@@ -1062,7 +1093,7 @@
             display: flex; align-items: center; gap: 18px;
             transition: all 0.3s var(--ease);
         }
-        .contact-card:hover {
+        a.contact-card:hover {
             border-color: rgba(124,92,252,0.2);
             transform: translateX(6px);
         }
@@ -1105,6 +1136,41 @@
             transform: translateY(-4px);
             box-shadow: 0 8px 25px var(--accent-glow);
         }
+
+        /* Contact form */
+        .contact-form-card {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius);
+            padding: 32px;
+        }
+        .contact-form-card h4 {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--pure-white);
+            margin-bottom: 24px;
+        }
+        .form-group { margin-bottom: 14px; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+        .form-input {
+            width: 100%;
+            padding: 14px 18px;
+            background: var(--black2);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-sm);
+            color: var(--light);
+            font-family: var(--font-body);
+            font-size: 0.92rem;
+            outline: none;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .form-input::placeholder { color: var(--gray2); }
+        .form-input:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(124,92,252,0.1);
+        }
+        textarea.form-input { resize: vertical; min-height: 110px; }
 
         /* ============================================
            FOOTER
@@ -1197,6 +1263,7 @@
             color: var(--pure-white);
         }
         .drive-modal-header a {
+            display: inline-flex; align-items: center; gap: 6px;
             padding: 8px 18px;
             background: var(--accent-subtle);
             border: 1px solid rgba(124,92,252,0.2);
@@ -1213,11 +1280,21 @@
         .drive-modal-body {
             flex: 1;
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .drive-modal-body iframe {
             width: 100%; height: 100%;
             border: none;
         }
+        .drive-fallback {
+            text-align: center;
+            padding: 40px;
+            color: var(--gray);
+        }
+        .drive-fallback i { font-size: 3rem; color: var(--accent); opacity: .3; margin-bottom: 16px; display: block; }
+        .drive-fallback p { margin-bottom: 20px; }
 
         /* Video Modal */
         .video-modal {
@@ -1273,25 +1350,26 @@
             .services-grid { grid-template-columns: 1fr; }
             .footer-content { flex-direction: column; gap: 20px; text-align: center; }
             .drive-modal { width: 98vw; height: 90vh; }
-            .cursor, .cursor-dot { display: none; }
+            .cursor, .cursor-dot { display: none !important; }
+            .form-row { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
 <!-- CURSOR -->
-<div class="cursor" id="cursor"></div>
-<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor" id="cursor" aria-hidden="true"></div>
+<div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
 
 <!-- LOADER -->
-<div class="loader" id="loader">
-    <div class="loader-name">KOUASSI BIGNON</div>
-    <div class="loader-bar"><div class="loader-bar-fill" id="loaderFill"></div></div>
+<div class="loader" id="loader" aria-label="Chargement">
+    <div class="loader-name" id="loaderName">KOUASSI BIGNON</div>
+    <div class="loader-bar" id="loaderBar"><div class="loader-bar-fill" id="loaderFill"></div></div>
 </div>
 
 <!-- NAV -->
-<nav class="nav" id="nav">
-    <a href="#hero" class="nav-logo">KB<span>.</span></a>
+<nav class="nav" id="nav" role="navigation" aria-label="Navigation principale">
+    <a href="#hero" class="nav-logo" aria-label="Retour à l'accueil">KB<span>.</span></a>
     <ul class="nav-links">
         <li><a href="#about">À propos</a></li>
         <li><a href="#services">Services</a></li>
@@ -1301,13 +1379,13 @@
         <li><a href="#contact">Contact</a></li>
     </ul>
     <a href="#contact" class="nav-cta">Me contacter</a>
-    <div class="nav-burger" id="navBurger">
+    <button class="nav-burger" id="navBurger" aria-label="Ouvrir le menu" aria-expanded="false">
         <span></span><span></span><span></span>
-    </div>
+    </button>
 </nav>
 
 <!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu">
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Menu mobile">
     <a href="#about">À propos</a>
     <a href="#services">Services</a>
     <a href="#portfolio">Portfolio</a>
@@ -1317,19 +1395,23 @@
 </div>
 
 <!-- ====== HERO ====== -->
-<section class="hero" id="hero">
-    <div class="hero-bg"><div class="hero-grid-pattern"></div></div>
+<section class="hero" id="hero" aria-label="Introduction">
+    <div class="hero-bg">
+        <div class="hero-grid-pattern"></div>
+        <div class="hero-glow-1" aria-hidden="true"></div>
+        <div class="hero-glow-2" aria-hidden="true"></div>
+    </div>
     <div class="container">
         <div class="hero-content">
             <div class="hero-text">
                 <div class="hero-badge">
-                    <span class="pulse"></span>
+                    <span class="pulse" aria-hidden="true"></span>
                     Disponible pour de nouveaux projets
                 </div>
                 <h1 class="hero-title">
                     KOUASSI<br><span class="accent">BIGNON</span>
                 </h1>
-                <div class="hero-roles">
+                <div class="hero-roles" aria-label="Titres professionnels">
                     <span class="hero-role">Brand Designer</span>
                     <span class="hero-role">Digital Communication Specialist</span>
                     <span class="hero-role">Creative Director</span>
@@ -1338,27 +1420,27 @@
                     Je conçois des identités visuelles, des stratégies de communication et des expériences digitales qui renforcent durablement les marques.
                 </p>
                 <div class="hero-buttons">
-                    <a href="#portfolio" class="btn btn-primary"><i class="fas fa-eye"></i> Voir mes réalisations</a>
-                    <a href="CV KOUASSI BIGNON _Résumé.pdf" download class="btn btn-outline"><i class="fas fa-download"></i> Télécharger mon CV</a>
-                    <a href="#contact" class="btn btn-outline"><i class="fas fa-paper-plane"></i> Me contacter</a>
+                    <a href="#portfolio" class="btn btn-primary"><i class="fas fa-eye" aria-hidden="true"></i> Voir mes réalisations</a>
+                    <a href="CV KOUASSI BIGNON _Résumé.pdf" download class="btn btn-outline"><i class="fas fa-download" aria-hidden="true"></i> Télécharger mon CV</a>
+                    <a href="#contact" class="btn btn-outline"><i class="fas fa-paper-plane" aria-hidden="true"></i> Me contacter</a>
                 </div>
             </div>
             <div class="hero-photo">
-                <div class="photo-glow"></div>
-                <div class="photo-accent"></div>
+                <div class="photo-glow" aria-hidden="true"></div>
+                <div class="photo-accent" aria-hidden="true"></div>
                 <div class="hero-photo-frame">
-                    <img src="Photo.jpg" alt="Kouassi Bignon — Brand Designer & Creative Director">
+                    <img src="Photo.jpg" alt="Kouassi Bignon — Brand Designer & Creative Director" width="420" height="500">
                 </div>
-                <div class="float-element float-1"><i class="fas fa-palette"></i> Brand Design</div>
-                <div class="float-element float-2"><i class="fas fa-rocket"></i> +100 projets</div>
+                <div class="float-element float-1" aria-hidden="true"><i class="fas fa-palette"></i> Brand Design</div>
+                <div class="float-element float-2" aria-hidden="true"><i class="fas fa-rocket"></i> +100 projets</div>
             </div>
         </div>
     </div>
 </section>
 
 <!-- ====== ABOUT ====== -->
-<div class="divider"></div>
-<section class="section" id="about">
+<div class="divider" aria-hidden="true"></div>
+<section class="section" id="about" aria-label="À propos">
     <div class="container">
         <div class="section-header reveal">
             <div class="section-label">À propos</div>
@@ -1404,7 +1486,7 @@
 </section>
 
 <!-- ====== STATS ====== -->
-<section class="section" style="padding-top:0;">
+<section class="section" style="padding-top:0;" aria-label="Statistiques">
     <div class="container">
         <div class="stats-grid">
             <div class="stat-card reveal">
@@ -1428,8 +1510,8 @@
 </section>
 
 <!-- ====== SERVICES ====== -->
-<div class="divider"></div>
-<section class="section" id="services">
+<div class="divider" aria-hidden="true"></div>
+<section class="section" id="services" aria-label="Services">
     <div class="container">
         <div class="section-header reveal">
             <div class="section-label">Services</div>
@@ -1438,47 +1520,47 @@
         </div>
         <div class="services-grid">
             <div class="service-card reveal">
-                <div class="service-icon"><i class="fas fa-gem"></i></div>
+                <div class="service-icon"><i class="fas fa-gem" aria-hidden="true"></i></div>
                 <h4>Brand Identity</h4>
                 <p>Création d'identités visuelles complètes et cohérentes qui reflètent l'essence de votre marque.</p>
             </div>
             <div class="service-card reveal">
-                <div class="service-icon"><i class="fas fa-pen-nib"></i></div>
+                <div class="service-icon"><i class="fas fa-pen-nib" aria-hidden="true"></i></div>
                 <h4>Logo Design</h4>
                 <p>Conception de logos mémorables, polyvalents et adaptés à tous vos supports de communication.</p>
             </div>
             <div class="service-card reveal">
-                <div class="service-icon"><i class="fas fa-hashtag"></i></div>
+                <div class="service-icon"><i class="fas fa-hashtag" aria-hidden="true"></i></div>
                 <h4>Communication Digitale</h4>
                 <p>Stratégie de contenu social media, animation de pages et optimisation de votre visibilité en ligne.</p>
             </div>
             <div class="service-card reveal">
-                <div class="service-icon"><i class="fas fa-paint-brush"></i></div>
+                <div class="service-icon"><i class="fas fa-paint-brush" aria-hidden="true"></i></div>
                 <h4>Direction Artistique</h4>
                 <p>Conception d'univers visuels pour projets vidéo, événements et campagnes créatives.</p>
             </div>
             <div class="service-card reveal">
-                <div class="service-icon"><i class="fas fa-print"></i></div>
+                <div class="service-icon"><i class="fas fa-print" aria-hidden="true"></i></div>
                 <h4>Design Print</h4>
                 <p>Création de supports imprimés haute qualité : flyers, affiches, brochures, cartes de visite.</p>
             </div>
             <div class="service-card reveal">
-                <div class="service-icon"><i class="fas fa-share-alt"></i></div>
+                <div class="service-icon"><i class="fas fa-share-alt" aria-hidden="true"></i></div>
                 <h4>Social Media Design</h4>
                 <p>Visuels percutants pour vos réseaux sociaux, optimisés pour chaque plateforme.</p>
             </div>
             <div class="service-card reveal">
-                <div class="service-icon"><i class="fas fa-camera"></i></div>
+                <div class="service-icon"><i class="fas fa-camera" aria-hidden="true"></i></div>
                 <h4>Photographie</h4>
                 <p>Couverture photographique d'événements, shooting produit et contenu visuel professionnel.</p>
             </div>
             <div class="service-card reveal">
-                <div class="service-icon"><i class="fas fa-video"></i></div>
+                <div class="service-icon"><i class="fas fa-video" aria-hidden="true"></i></div>
                 <h4>Vidéo & Motion Design</h4>
                 <p>Production vidéo, aftermovies, contenus animés pour réseaux sociaux et campagnes digitales.</p>
             </div>
             <div class="service-card reveal">
-                <div class="service-icon"><i class="fas fa-bullhorn"></i></div>
+                <div class="service-icon"><i class="fas fa-bullhorn" aria-hidden="true"></i></div>
                 <h4>Marketing Digital</h4>
                 <p>Stratégie marketing complète, publicité en ligne, suivi de performance et optimisation des campagnes.</p>
             </div>
@@ -1487,8 +1569,8 @@
 </section>
 
 <!-- ====== PORTFOLIO ====== -->
-<div class="divider"></div>
-<section class="section" id="portfolio">
+<div class="divider" aria-hidden="true"></div>
+<section class="section" id="portfolio" aria-label="Portfolio">
     <div class="container">
         <div class="section-header reveal">
             <div class="section-label">Portfolio</div>
@@ -1496,38 +1578,46 @@
             <p class="section-subtitle">Découvrez une sélection de projets qui illustrent mon expertise en branding, design et communication digitale.</p>
         </div>
         <div class="portfolio-grid">
-            <div class="portfolio-card reveal" onclick="openDrive('Branding', 'https://drive.google.com/drive/folders/1iTrUUUOPGGUfc5KK-RLnoPKsfZG0XclE')">
-                <div class="portfolio-card-bg"><i class="fas fa-gem"></i></div>
-                <div class="portfolio-card-arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="portfolio-card reveal" role="button" tabindex="0" aria-label="Voir les projets Branding"
+                 onclick="openDrive('Branding', 'https://drive.google.com/drive/folders/1iTrUUUOPGGUfc5KK-RLnoPKsfZG0XclE')"
+                 onkeydown="if(event.key==='Enter')openDrive('Branding','https://drive.google.com/drive/folders/1iTrUUUOPGGUfc5KK-RLnoPKsfZG0XclE')">
+                <div class="portfolio-card-bg" aria-hidden="true"><i class="fas fa-gem"></i></div>
+                <div class="portfolio-card-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></div>
                 <div class="portfolio-card-content">
-                    <div class="portfolio-card-cat"><i class="fas fa-gem"></i> Branding</div>
+                    <div class="portfolio-card-cat"><i class="fas fa-gem" aria-hidden="true"></i> Branding</div>
                     <h3>Identités Visuelles</h3>
                     <p>Chartes graphiques, déclinaisons print & digital, univers de marque complets.</p>
                 </div>
             </div>
-            <div class="portfolio-card reveal" onclick="openDrive('Logos', 'https://drive.google.com/drive/folders/167Q2G4sUgtAhHv2HO6AMXyzAZ6Jgtf0M')">
-                <div class="portfolio-card-bg"><i class="fas fa-pen-nib"></i></div>
-                <div class="portfolio-card-arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="portfolio-card reveal" role="button" tabindex="0" aria-label="Voir les projets Logos"
+                 onclick="openDrive('Logos', 'https://drive.google.com/drive/folders/167Q2G4sUgtAhHv2HO6AMXyzAZ6Jgtf0M')"
+                 onkeydown="if(event.key==='Enter')openDrive('Logos','https://drive.google.com/drive/folders/167Q2G4sUgtAhHv2HO6AMXyzAZ6Jgtf0M')">
+                <div class="portfolio-card-bg" aria-hidden="true"><i class="fas fa-pen-nib"></i></div>
+                <div class="portfolio-card-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></div>
                 <div class="portfolio-card-content">
-                    <div class="portfolio-card-cat"><i class="fas fa-pen-nib"></i> Logos</div>
+                    <div class="portfolio-card-cat"><i class="fas fa-pen-nib" aria-hidden="true"></i> Logos</div>
                     <h3>Création de Logos</h3>
                     <p>Logos mémorables et polyvalents pour entreprises, événements et marques personnelles.</p>
                 </div>
             </div>
-            <div class="portfolio-card reveal" onclick="openDrive('Flyers', 'https://drive.google.com/drive/folders/1g0cBpWiQtell3kSsx-L4Yx23JVlp7PXj')">
-                <div class="portfolio-card-bg"><i class="fas fa-file-image"></i></div>
-                <div class="portfolio-card-arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="portfolio-card reveal" role="button" tabindex="0" aria-label="Voir les projets Flyers"
+                 onclick="openDrive('Flyers', 'https://drive.google.com/drive/folders/1g0cBpWiQtell3kSsx-L4Yx23JVlp7PXj')"
+                 onkeydown="if(event.key==='Enter')openDrive('Flyers','https://drive.google.com/drive/folders/1g0cBpWiQtell3kSsx-L4Yx23JVlp7PXj')">
+                <div class="portfolio-card-bg" aria-hidden="true"><i class="fas fa-file-image"></i></div>
+                <div class="portfolio-card-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></div>
                 <div class="portfolio-card-content">
-                    <div class="portfolio-card-cat"><i class="fas fa-file-image"></i> Flyers</div>
+                    <div class="portfolio-card-cat"><i class="fas fa-file-image" aria-hidden="true"></i> Flyers</div>
                     <h3>Design Print & Flyers</h3>
                     <p>Affiches, flyers, brochures et supports de communication imprimés.</p>
                 </div>
             </div>
-            <div class="portfolio-card reveal" onclick="openDrive('Sérigraphie', 'https://drive.google.com/drive/folders/1df5bfavnB5eRlxELKXHhLdGcIIJQ6MCX')">
-                <div class="portfolio-card-bg"><i class="fas fa-tshirt"></i></div>
-                <div class="portfolio-card-arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="portfolio-card reveal" role="button" tabindex="0" aria-label="Voir les projets Sérigraphie"
+                 onclick="openDrive('Sérigraphie', 'https://drive.google.com/drive/folders/1df5bfavnB5eRlxELKXHhLdGcIIJQ6MCX')"
+                 onkeydown="if(event.key==='Enter')openDrive('Sérigraphie','https://drive.google.com/drive/folders/1df5bfavnB5eRlxELKXHhLdGcIIJQ6MCX')">
+                <div class="portfolio-card-bg" aria-hidden="true"><i class="fas fa-tshirt"></i></div>
+                <div class="portfolio-card-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></div>
                 <div class="portfolio-card-content">
-                    <div class="portfolio-card-cat"><i class="fas fa-tshirt"></i> Sérigraphie</div>
+                    <div class="portfolio-card-cat"><i class="fas fa-tshirt" aria-hidden="true"></i> Sérigraphie</div>
                     <h3>Sérigraphie Numérique</h3>
                     <p>Impression textile, préparation de fichiers et contrôle qualité pour projets sérigraphiés.</p>
                 </div>
@@ -1537,8 +1627,8 @@
 </section>
 
 <!-- ====== VIDEOS ====== -->
-<div class="divider"></div>
-<section class="section" id="videos">
+<div class="divider" aria-hidden="true"></div>
+<section class="section" id="videos" aria-label="Vidéos">
     <div class="container">
         <div class="section-header reveal">
             <div class="section-label">Vidéos</div>
@@ -1546,14 +1636,18 @@
             <p class="section-subtitle">Direction artistique et production vidéo — découvrez mes réalisations en mouvement.</p>
         </div>
         <div class="video-grid">
-            <div class="video-card reveal" onclick="openVideo('RN9XnFbzAag')">
-                <img class="video-thumb" src="https://img.youtube.com/vi/RN9XnFbzAag/maxresdefault.jpg" alt="Publicité BB Charwarma" loading="lazy">
-                <div class="video-play"><div class="video-play-btn"><i class="fas fa-play"></i></div></div>
+            <div class="video-card reveal" role="button" tabindex="0" aria-label="Lancer la vidéo Publicité BB Charwarma"
+                 onclick="openVideo('RN9XnFbzAag')"
+                 onkeydown="if(event.key==='Enter')openVideo('RN9XnFbzAag')">
+                <img class="video-thumb" src="https://img.youtube.com/vi/RN9XnFbzAag/maxresdefault.jpg" alt="Publicité BB Charwarma — miniature YouTube" loading="lazy" width="640" height="360">
+                <div class="video-play" aria-hidden="true"><div class="video-play-btn"><i class="fas fa-play"></i></div></div>
                 <div class="video-info"><h4>Publicité BB Charwarma</h4></div>
             </div>
-            <div class="video-card reveal" onclick="openVideo('bKPFd562aJA')">
-                <img class="video-thumb" src="https://img.youtube.com/vi/bKPFd562aJA/maxresdefault.jpg" alt="Documentaire Côte d'Ivoire" loading="lazy">
-                <div class="video-play"><div class="video-play-btn"><i class="fas fa-play"></i></div></div>
+            <div class="video-card reveal" role="button" tabindex="0" aria-label="Lancer la vidéo Documentaire Côte d'Ivoire"
+                 onclick="openVideo('bKPFd562aJA')"
+                 onkeydown="if(event.key==='Enter')openVideo('bKPFd562aJA')">
+                <img class="video-thumb" src="https://img.youtube.com/vi/bKPFd562aJA/maxresdefault.jpg" alt="Documentaire Côte d'Ivoire — miniature YouTube" loading="lazy" width="640" height="360">
+                <div class="video-play" aria-hidden="true"><div class="video-play-btn"><i class="fas fa-play"></i></div></div>
                 <div class="video-info"><h4>Documentaire Côte d'Ivoire</h4></div>
             </div>
         </div>
@@ -1561,8 +1655,8 @@
 </section>
 
 <!-- ====== EXPERIENCE ====== -->
-<div class="divider"></div>
-<section class="section" id="experience">
+<div class="divider" aria-hidden="true"></div>
+<section class="section" id="experience" aria-label="Expérience professionnelle">
     <div class="container">
         <div class="section-header reveal">
             <div class="section-label">Parcours</div>
@@ -1629,8 +1723,8 @@
 </section>
 
 <!-- ====== SKILLS ====== -->
-<div class="divider"></div>
-<section class="section" id="skills">
+<div class="divider" aria-hidden="true"></div>
+<section class="section" id="skills" aria-label="Compétences">
     <div class="container">
         <div class="section-header reveal">
             <div class="section-label">Compétences</div>
@@ -1653,8 +1747,8 @@
 </section>
 
 <!-- ====== CERTIFICATIONS ====== -->
-<div class="divider"></div>
-<section class="section" id="certifications">
+<div class="divider" aria-hidden="true"></div>
+<section class="section" id="certifications" aria-label="Certifications">
     <div class="container">
         <div class="section-header reveal">
             <div class="section-label">Certifications</div>
@@ -1662,19 +1756,19 @@
         </div>
         <div class="certs-grid">
             <div class="cert-card reveal">
-                <div class="cert-icon"><i class="fas fa-bullhorn"></i></div>
+                <div class="cert-icon"><i class="fas fa-bullhorn" aria-hidden="true"></i></div>
                 <div><h5>Marketing Digital</h5><span class="cert-org">Accenture — Future Learn, Déc. 2025</span></div>
             </div>
             <div class="cert-card reveal">
-                <div class="cert-icon"><i class="fas fa-brain"></i></div>
+                <div class="cert-icon"><i class="fas fa-brain" aria-hidden="true"></i></div>
                 <div><h5>Foundation of Prompt Engineering</h5><span class="cert-org">AWS Training Online, Oct. 2025</span></div>
             </div>
             <div class="cert-card reveal">
-                <div class="cert-icon"><i class="fab fa-linkedin"></i></div>
+                <div class="cert-icon"><i class="fab fa-linkedin" aria-hidden="true"></i></div>
                 <div><h5>IA & Organisation</h5><span class="cert-org">LinkedIn Learning, Oct. 2025</span></div>
             </div>
             <div class="cert-card reveal">
-                <div class="cert-icon"><i class="fas fa-shield-alt"></i></div>
+                <div class="cert-icon"><i class="fas fa-shield-alt" aria-hidden="true"></i></div>
                 <div><h5>Cybercriminalité</h5><span class="cert-org">ONUDC/UNODC, Juin 2026</span></div>
             </div>
         </div>
@@ -1682,13 +1776,13 @@
 </section>
 
 <!-- ====== CV ====== -->
-<div class="divider"></div>
-<section class="section" id="cv">
+<div class="divider" aria-hidden="true"></div>
+<section class="section" id="cv" aria-label="Curriculum Vitae">
     <div class="container">
         <div class="cv-grid">
             <div class="cv-preview reveal">
                 <div class="cv-placeholder">
-                    <i class="fas fa-file-pdf"></i>
+                    <i class="fas fa-file-pdf" aria-hidden="true"></i>
                     <p>CV — Kouassi Bignon</p>
                     <p style="font-size:.8rem; margin-top:8px; color:var(--gray2);">Cliquez sur le bouton pour télécharger</p>
                 </div>
@@ -1697,15 +1791,15 @@
                 <div class="section-label">Curriculum Vitae</div>
                 <h3>Téléchargez<br>mon CV complet.</h3>
                 <p>Retrouvez l'ensemble de mon parcours professionnel, mes formations, certifications et compétences détaillées dans mon CV téléchargeable.</p>
-                <a href="CV KOUASSI BIGNON _Résumé.pdf" download class="btn btn-primary"><i class="fas fa-download"></i> Télécharger mon CV</a>
+                <a href="CV KOUASSI BIGNON _Résumé.pdf" download class="btn btn-primary"><i class="fas fa-download" aria-hidden="true"></i> Télécharger mon CV</a>
             </div>
         </div>
     </div>
 </section>
 
 <!-- ====== CONTACT ====== -->
-<div class="divider"></div>
-<section class="section" id="contact">
+<div class="divider" aria-hidden="true"></div>
+<section class="section" id="contact" aria-label="Contact">
     <div class="container">
         <div class="section-header reveal">
             <div class="section-label">Contact</div>
@@ -1715,35 +1809,35 @@
         <div class="contact-grid">
             <div class="contact-cards reveal">
                 <a href="tel:+2250506652583" class="contact-card">
-                    <div class="contact-card-icon"><i class="fas fa-phone"></i></div>
+                    <div class="contact-card-icon"><i class="fas fa-phone" aria-hidden="true"></i></div>
                     <div><div class="cc-label">Téléphone</div><div class="cc-value">+225 05 06 65 25 83</div></div>
                 </a>
                 <a href="mailto:bignonkouassi@gmail.com" class="contact-card">
-                    <div class="contact-card-icon"><i class="fas fa-envelope"></i></div>
+                    <div class="contact-card-icon"><i class="fas fa-envelope" aria-hidden="true"></i></div>
                     <div><div class="cc-label">Email</div><div class="cc-value">bignonkouassi@gmail.com</div></div>
                 </a>
-                <a href="#" class="contact-card">
-                    <div class="contact-card-icon"><i class="fas fa-map-marker-alt"></i></div>
+                <div class="contact-card">
+                    <div class="contact-card-icon"><i class="fas fa-map-marker-alt" aria-hidden="true"></i></div>
                     <div><div class="cc-label">Localisation</div><div class="cc-value">Yamoussoukro, Côte d'Ivoire</div></div>
-                </a>
+                </div>
                 <div class="contact-socials">
-                    <a href="https://wa.me/2250506652583" target="_blank" class="social-btn" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                    <a href="https://www.facebook.com/share/18gFDCPWDR/?mibextid=wwXIfr" target="_blank" class="social-btn" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.linkedin.com/in/bignon-kouassi-57311938a" target="_blank" class="social-btn" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="mailto:bignonkouassi@gmail.com" class="social-btn" title="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="https://wa.me/2250506652583" target="_blank" rel="noopener noreferrer" class="social-btn" title="WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+                    <a href="https://www.facebook.com/share/18gFDCPWDR/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="social-btn" title="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                    <a href="https://www.linkedin.com/in/bignon-kouassi-57311938a" target="_blank" rel="noopener noreferrer" class="social-btn" title="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                    <a href="mailto:bignonkouassi@gmail.com" class="social-btn" title="Email"><i class="fas fa-envelope" aria-hidden="true"></i></a>
                 </div>
             </div>
             <div class="contact-cards reveal">
-                <div class="contact-card" style="flex-direction:column; align-items:stretch; gap:20px; cursor:default;">
-                    <h4 style="font-family:var(--font-heading); font-size:1.2rem; font-weight:600; color:var(--pure-white);">Envoyez-moi un message</h4>
-                    <form onsubmit="handleForm(event)" style="display:flex; flex-direction:column; gap:14px;">
-                        <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
-                            <input type="text" placeholder="Votre nom" required style="padding:14px 18px; background:var(--black2); border:1px solid var(--glass-border); border-radius:var(--radius-sm); color:var(--light); font-family:var(--font-body); font-size:.92rem; outline:none; transition:border-color .3s;">
-                            <input type="email" placeholder="Votre email" required style="padding:14px 18px; background:var(--black2); border:1px solid var(--glass-border); border-radius:var(--radius-sm); color:var(--light); font-family:var(--font-body); font-size:.92rem; outline:none; transition:border-color .3s;">
+                <div class="contact-form-card">
+                    <h4>Envoyez-moi un message</h4>
+                    <form id="contactForm" onsubmit="handleForm(event)">
+                        <div class="form-row">
+                            <div class="form-group"><input type="text" name="name" class="form-input" placeholder="Votre nom" required aria-label="Votre nom"></div>
+                            <div class="form-group"><input type="email" name="email" class="form-input" placeholder="Votre email" required aria-label="Votre email"></div>
                         </div>
-                        <input type="text" placeholder="Sujet" style="padding:14px 18px; background:var(--black2); border:1px solid var(--glass-border); border-radius:var(--radius-sm); color:var(--light); font-family:var(--font-body); font-size:.92rem; outline:none; transition:border-color .3s;">
-                        <textarea placeholder="Décrivez votre projet..." rows="4" style="padding:14px 18px; background:var(--black2); border:1px solid var(--glass-border); border-radius:var(--radius-sm); color:var(--light); font-family:var(--font-body); font-size:.92rem; outline:none; resize:vertical; transition:border-color .3s;"></textarea>
-                        <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;"><i class="fas fa-paper-plane"></i> Envoyer le message</button>
+                        <div class="form-group"><input type="text" name="subject" class="form-input" placeholder="Sujet" aria-label="Sujet"></div>
+                        <div class="form-group"><textarea name="message" class="form-input" placeholder="Décrivez votre projet..." rows="4" required aria-label="Message"></textarea></div>
+                        <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;"><i class="fas fa-paper-plane" aria-hidden="true"></i> Envoyer le message</button>
                     </form>
                 </div>
             </div>
@@ -1757,85 +1851,109 @@
         <div class="footer-content">
             <div class="footer-logo">KB<span>.</span></div>
             <p class="footer-copy">© 2026 <a href="#hero">Kouassi Bignon</a>. Tous droits réservés.</p>
-            <a href="#hero" class="back-top"><i class="fas fa-arrow-up"></i></a>
+            <a href="#hero" class="back-top" aria-label="Retour en haut"><i class="fas fa-arrow-up" aria-hidden="true"></i></a>
         </div>
     </div>
 </footer>
 
 <!-- ====== DRIVE MODAL ====== -->
-<div class="modal-overlay" id="driveModal">
+<div class="modal-overlay" id="driveModal" role="dialog" aria-modal="true" aria-label="Galerie Google Drive">
     <div class="drive-modal">
         <div class="drive-modal-header">
             <h3 id="driveTitle">Portfolio</h3>
-            <a id="driveLink" href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Ouvrir dans Drive</a>
+            <a id="driveLink" href="#" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt" aria-hidden="true"></i> Ouvrir dans Drive</a>
         </div>
-        <div class="drive-modal-body">
-            <iframe id="driveIframe" src="" loading="lazy"></iframe>
+        <div class="drive-modal-body" id="driveBody">
+            <iframe id="driveIframe" src="" loading="lazy" title="Galerie Google Drive"></iframe>
         </div>
     </div>
-    <button class="modal-close" onclick="closeDrive()"><i class="fas fa-times"></i></button>
+    <button class="modal-close" onclick="closeDrive()" aria-label="Fermer"><i class="fas fa-times" aria-hidden="true"></i></button>
 </div>
 
 <!-- ====== VIDEO MODAL ====== -->
-<div class="modal-overlay" id="videoModal">
+<div class="modal-overlay" id="videoModal" role="dialog" aria-modal="true" aria-label="Lecteur vidéo">
     <div class="video-modal">
-        <iframe id="videoIframe" src="" allow="autoplay; encrypted-media" allowfullscreen loading="lazy"></iframe>
+        <iframe id="videoIframe" src="" allow="autoplay; encrypted-media" allowfullscreen loading="lazy" title="Vidéo YouTube"></iframe>
     </div>
-    <button class="modal-close" onclick="closeVideo()"><i class="fas fa-times"></i></button>
+    <button class="modal-close" onclick="closeVideo()" aria-label="Fermer"><i class="fas fa-times" aria-hidden="true"></i></button>
 </div>
 
 <script>
 /* ============================================
-   LOADER
+   LOADER — Fixed: name and bar now animate in
    ============================================ */
 window.addEventListener('DOMContentLoaded', () => {
-    const fill = document.getElementById('loaderFill');
+    const loaderName = document.getElementById('loaderName');
+    const loaderBar = document.getElementById('loaderBar');
+    const loaderFill = document.getElementById('loaderFill');
     const loader = document.getElementById('loader');
-    fill.style.width = '100%';
-    setTimeout(() => { loader.classList.add('done'); }, 1400);
+
+    // Step 1: Show name and bar
+    requestAnimationFrame(() => {
+        loaderName.classList.add('show');
+        setTimeout(() => {
+            loaderBar.classList.add('show');
+            // Step 2: Animate fill bar
+            requestAnimationFrame(() => { loaderFill.classList.add('animate'); });
+        }, 200);
+    });
+
+    // Step 3: Hide loader
+    setTimeout(() => { loader.classList.add('done'); }, 1600);
 });
 
 /* ============================================
-   CUSTOM CURSOR
+   CUSTOM CURSOR — Fixed: visible class added
    ============================================ */
-const cursor = document.getElementById('cursor');
+const cursorEl = document.getElementById('cursor');
 const cursorDot = document.getElementById('cursorDot');
-if (window.innerWidth > 768) {
+const isDesktop = window.innerWidth > 768;
+
+if (isDesktop) {
+    // Show cursor after a small delay to avoid initial flash
+    setTimeout(() => {
+        cursorEl.classList.add('visible');
+        cursorDot.classList.add('visible');
+    }, 100);
+
     document.addEventListener('mousemove', e => {
-        cursor.style.left = e.clientX + 'px';
-        cursor.style.top = e.clientY + 'px';
+        cursorEl.style.left = e.clientX + 'px';
+        cursorEl.style.top = e.clientY + 'px';
         cursorDot.style.left = e.clientX + 'px';
         cursorDot.style.top = e.clientY + 'px';
     });
-    document.querySelectorAll('a, button, .portfolio-card, .video-card, .service-card').forEach(el => {
-        el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
-        el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+
+    document.querySelectorAll('a, button, .portfolio-card, .video-card, .service-card, .about-tag, .exp-card, .cert-card, .social-btn, .skill-bar').forEach(el => {
+        el.addEventListener('mouseenter', () => cursorEl.classList.add('hover'));
+        el.addEventListener('mouseleave', () => cursorEl.classList.remove('hover'));
     });
 }
 
 /* ============================================
-   NAVIGATION
+   NAVIGATION — Fixed: aria-expanded toggle
    ============================================ */
 const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); });
+window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); }, { passive: true });
 
 const burger = document.getElementById('navBurger');
 const mobileMenu = document.getElementById('mobileMenu');
 burger.addEventListener('click', () => {
-    burger.classList.toggle('open');
+    const isOpen = burger.classList.toggle('open');
     mobileMenu.classList.toggle('open');
-    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+    burger.setAttribute('aria-expanded', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
 });
 mobileMenu.querySelectorAll('a').forEach(a => {
     a.addEventListener('click', () => {
         burger.classList.remove('open');
         mobileMenu.classList.remove('open');
+        burger.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = '';
     });
 });
 
 /* ============================================
-   GSAP ANIMATIONS
+   GSAP ANIMATIONS — Fixed: counter + parallax
    ============================================ */
 gsap.registerPlugin(ScrollTrigger);
 
@@ -1849,20 +1967,20 @@ document.querySelectorAll('.reveal').forEach(el => {
     });
 });
 
-// Counter animation
+// Counter animation — FIXED: reliable approach
 document.querySelectorAll('.counter').forEach(counter => {
     const target = parseInt(counter.dataset.target);
+    const obj = { val: 0 };
     ScrollTrigger.create({
         trigger: counter,
-        start: 'top 85%',
+        start: 'top 88%',
         once: true,
         onEnter: () => {
-            gsap.to(counter, {
-                innerText: target,
+            gsap.to(obj, {
+                val: target,
                 duration: 2,
                 ease: 'power2.out',
-                snap: { innerText: 1 },
-                onUpdate: function() { counter.textContent = Math.round(this.targets()[0].innerText || 0); }
+                onUpdate: () => { counter.textContent = Math.round(obj.val); }
             });
         }
     });
@@ -1880,9 +1998,17 @@ document.querySelectorAll('.skill-bar').forEach(bar => {
     });
 });
 
-// Hero parallax
-gsap.to('.hero-bg::before', {
+// Hero parallax — FIXED: animate actual elements, not pseudo-elements
+gsap.to('.hero-glow-1', {
     y: -100,
+    scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 }
+});
+gsap.to('.hero-glow-2', {
+    y: -60,
+    scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 }
+});
+gsap.to('.hero-photo-frame', {
+    y: -30,
     scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 }
 });
 
@@ -1891,22 +2017,54 @@ gsap.utils.toArray('.timeline-item').forEach((item, i) => {
     gsap.fromTo(item, { opacity: 0, x: -30 }, {
         opacity: 1, x: 0,
         duration: 0.7,
-        delay: i * 0.1,
         ease: 'power3.out',
-        scrollTrigger: { trigger: item, start: 'top 88%', once: true }
+        scrollTrigger: {
+            trigger: item,
+            start: 'top 88%',
+            once: true,
+            onEnter: () => gsap.to(item, { opacity: 1, x: 0, duration: 0.7, delay: i * 0.08, ease: 'power3.out' })
+        }
     });
 });
 
 /* ============================================
-   DRIVE MODAL
+   DRIVE MODAL — Fixed: fallback if iframe blocked
    ============================================ */
 function openDrive(title, url) {
     const modal = document.getElementById('driveModal');
+    const body = document.getElementById('driveBody');
     document.getElementById('driveTitle').textContent = title;
     document.getElementById('driveLink').href = url;
-    // Try to embed Drive folder
-    const embedUrl = url.replace('/drive/folders/', '/embed/u/0/folders/');
-    document.getElementById('driveIframe').src = embedUrl;
+
+    // Extract folder ID for embed
+    const folderId = url.match(/folders\/([a-zA-Z0-9_-]+)/);
+    let embedUrl = '';
+    if (folderId) {
+        embedUrl = `https://drive.google.com/embeddedfolderview?id=${folderId[1]}#list`;
+    }
+
+    // Reset body
+    body.innerHTML = `<iframe id="driveIframe" src="${embedUrl}" loading="lazy" title="Galerie Google Drive"></iframe>`;
+
+    // Fallback: if iframe fails to load after 5s, show direct link
+    const iframe = document.getElementById('driveIframe');
+    const fallbackTimer = setTimeout(() => {
+        body.innerHTML = `
+            <div class="drive-fallback">
+                <i class="fas fa-folder-open"></i>
+                <p>La galerie ne peut pas être intégrée directement.<br>Cliquez ci-dessous pour ouvrir dans Google Drive.</p>
+                <a href="${url}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="display:inline-flex;">
+                    <i class="fas fa-external-link-alt"></i> Ouvrir dans Google Drive
+                </a>
+            </div>`;
+    }, 5000);
+
+    iframe.addEventListener('load', () => {
+        // Check if iframe loaded successfully (cross-origin, so we can't read content)
+        // We'll just clear the fallback timer if load fires
+        clearTimeout(fallbackTimer);
+    });
+
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
 }
@@ -1914,16 +2072,17 @@ function openDrive(title, url) {
 function closeDrive() {
     const modal = document.getElementById('driveModal');
     modal.classList.remove('active');
-    document.getElementById('driveIframe').src = '';
+    const body = document.getElementById('driveBody');
+    body.innerHTML = '';
     document.body.style.overflow = '';
 }
 
 /* ============================================
-   VIDEO MODAL
+   VIDEO MODAL — Fixed: proper cleanup
    ============================================ */
 function openVideo(id) {
     const modal = document.getElementById('videoModal');
-    document.getElementById('videoIframe').src = `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;
+    document.getElementById('videoIframe').src = `https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1`;
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
 }
@@ -1931,6 +2090,7 @@ function openVideo(id) {
 function closeVideo() {
     const modal = document.getElementById('videoModal');
     modal.classList.remove('active');
+    // Stop video by clearing src
     document.getElementById('videoIframe').src = '';
     document.body.style.overflow = '';
 }
@@ -1947,32 +2107,49 @@ document.querySelectorAll('.modal-overlay').forEach(overlay => {
 
 // Close on ESC
 document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') { closeDrive(); closeVideo(); }
+    if (e.key === 'Escape') {
+        closeDrive();
+        closeVideo();
+    }
 });
 
 /* ============================================
-   FORM
+   FORM — Fixed: proper reset and feedback
    ============================================ */
 function handleForm(e) {
     e.preventDefault();
-    const btn = e.target.querySelector('button');
-    btn.innerHTML = '<i class="fas fa-check"></i> Message envoyé !';
+    const form = e.target;
+    const btn = form.querySelector('button');
+    const originalHTML = btn.innerHTML;
+
+    btn.innerHTML = '<i class="fas fa-check" aria-hidden="true"></i> Message envoyé !';
     btn.style.background = '#10b981';
+    btn.style.boxShadow = '0 4px 25px rgba(16,185,129,0.3)';
+    btn.disabled = true;
+
     setTimeout(() => {
-        btn.innerHTML = '<i class="fas fa-paper-plane"></i> Envoyer le message';
+        btn.innerHTML = originalHTML;
         btn.style.background = '';
-        e.target.reset();
+        btn.style.boxShadow = '';
+        btn.disabled = false;
+        form.reset();
     }, 3000);
 }
 
 /* ============================================
-   SMOOTH SCROLL
+   SMOOTH SCROLL — Fixed: proper offset for nav
    ============================================ */
 document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
-        e.preventDefault();
-        const target = document.querySelector(a.getAttribute('href'));
-        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        const href = a.getAttribute('href');
+        if (href === '#') return;
+        const target = document.querySelector(href);
+        if (target) {
+            e.preventDefault();
+            const offset = 80; // nav height
+            const top = target.getBoundingClientRect().top + window.scrollY - offset;
+            window.scrollTo({ top, behavior: 'smooth' });
+        }
     });
 });
 </script>
