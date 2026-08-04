@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KOUASSI BIGNON — Portfolio</title>
+  <meta name="description" content="Portfolio de KOUASSI BIGNON — Découvrez mes réalisations, compétences et parcours professionnel." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+  <!-- ====== Barre de navigation ====== -->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="#accueil" class="nav-logo" aria-label="Accueil">
+        <span class="nav-logo-dot"></span> K<span>B</span>.
+      </a>
+
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="#accueil" class="nav-link active">Accueil</a></li>
+        <li><a href="#a-propos" class="nav-link">À propos</a></li>
+        <li><a href="#competences" class="nav-link">Compétences</a></li>
+        <li><a href="#realisations" class="nav-link">Réalisations</a></li>
+        <li><a href="#parcours" class="nav-link">Parcours</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+        <li class="nav-cta-mobile">
+          <a href="assets/cv.pdf" class="btn btn-outline btn-sm" download>Télécharger mon CV</a>
+        </li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="assets/cv.pdf" class="btn btn-outline btn-sm nav-cta" download>Télécharger mon CV</a>
+        <button class="nav-burger" id="nav-burger" aria-label="Ouvrir le menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ====== HERO / ACCUEIL ====== -->
+    <section class="hero" id="accueil">
+      <div class="hero-bg" aria-hidden="true">
+        <span class="orb orb-1"></span>
+        <span class="orb orb-2"></span>
+        <span class="grid-overlay"></span>
+      </div>
+
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <span class="hero-greeting">👋 Bonjour, je suis</span>
+          <h1 class="hero-name">KOUASSI <span>BIGNON</span></h1>
+          <p class="hero-role"><span id="typed-role"></span><span class="typed-cursor">|</span></p>
+          <p class="hero-desc">
+            Passionné par le digital, je conçois des expériences web modernes, performantes
+            et pensées pour l'utilisateur. Bienvenue dans mon univers créatif.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#realisations" class="btn btn-primary">Voir mes réalisations
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#contact" class="btn btn-ghost">Me contacter</a>
+          </div>
+
+          <div class="hero-socials">
+            <a href="https://github.com/" target="_blank" rel="noopener" aria-label="GitHub">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55v-2.15c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.75 2.69 1.25 3.34.95.1-.74.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.76.11 3.05.74.81 1.18 1.83 1.18 3.09 0 4.41-2.69 5.38-5.25 5.66.41.35.77 1.05.77 2.12v3.14c0 .3.21.67.8.55A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+            </a>
+            <a href="mailto:contact@example.com" aria-label="Email">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal">
+          <div class="photo-frame">
+            <div class="photo-ring" aria-hidden="true"></div>
+            <!-- Remplacez photo.png par votre vraie photo -->
+            <img src="assets/img/photo.png" alt="Photo de KOUASSI BIGNON" id="hero-photo"
+                 onerror="this.style.display='none';document.getElementById('photo-fallback').style.display='flex';" />
+            <div class="photo-fallback" id="photo-fallback" aria-hidden="true">KB</div>
+
+            <div class="floating-card fc-1">
+              <span class="fc-icon">⚡</span>
+              <div><strong>Rapide & fiable</strong><small>Performance avant tout</small></div>
+            </div>
+            <div class="floating-card fc-2">
+              <span class="fc-icon">🎯</span>
+              <div><strong>Résultats</strong><small>+15 projets livrés</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Statistiques -->
+      <div class="container">
+        <div class="hero-stats reveal">
+          <div class="stat"><strong data-count="15">0</strong><span>Projets réalisés</span></div>
+          <div class="stat"><strong data-count="3">0</strong><span>Années d'expérience</span></div>
+          <div class="stat"><strong data-count="10">0</strong><span>Clients satisfaits</span></div>
+          <div class="stat"><strong data-count="98">0</strong><span>% de satisfaction</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== À PROPOS ====== -->
+    <section class="section" id="a-propos">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-tag">À propos</span>
+          <h2 class="section-title">Qui suis-je ?</h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-text reveal">
+            <p>
+              Je suis <strong>KOUASSI BIGNON</strong>, un professionnel passionné du numérique.
+              Mon objectif : transformer des idées en solutions concrètes, fonctionnelles
+              et esthétiques qui répondent réellement aux besoins des utilisateurs.
+            </p>
+            <p>
+              Curieux, rigoureux et constamment en veille sur les nouvelles technologies,
+              j'aime relever des défis et apprendre en continu. Chaque projet est pour moi
+              une occasion de créer de la valeur et de dépasser les attentes.
+            </p>
+
+            <ul class="about-points">
+              <li>✔️ Autonome et organisé, gestion de projet de A à Z</li>
+              <li>✔️ Esprit d'équipe et excellente communication</li>
+              <li>✔️ Veille technologique constante</li>
+              <li>✔️ Sens du détail et du design</li>
+            </ul>
+
+            <div class="about-actions">
+              <a href="assets/cv.pdf" class="btn btn-primary" download>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                Télécharger mon CV
+              </a>
+              <a href="#contact" class="btn btn-ghost">Discutons de votre projet</a>
+            </div>
+          </div>
+
+          <div class="about-card reveal">
+            <h3>Informations</h3>
+            <ul class="info-list">
+              <li><span>Nom :</span><strong>KOUASSI BIGNON</strong></li>
+              <li><span>Localisation :</span><strong>Abidjan, Côte d'Ivoire</strong></li>
+              <li><span>Email :</span><strong>contact@example.com</strong></li>
+              <li><span>Téléphone :</span><strong>+225 00 00 00 00 00</strong></li>
+              <li><span>Disponibilité :</span><strong class="badge-ok">● Disponible</strong></li>
+              <li><span>Langues :</span><strong>Français, Anglais</strong></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== COMPÉTENCES ====== -->
+    <section class="section section-alt" id="competences">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-tag">Compétences</span>
+          <h2 class="section-title">Mes atouts techniques</h2>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skills-col reveal">
+            <h3 class="skills-title">🛠️ Technologies</h3>
+            <div class="skill">
+              <div class="skill-top"><span>HTML / CSS / JavaScript</span><span>90%</span></div>
+              <div class="skill-bar"><span style="--w:90%"></span></div>
+            </div>
+            <div class="skill">
+              <div class="skill-top"><span>React / Next.js</span><span>80%</span></div>
+              <div class="skill-bar"><span style="--w:80%"></span></div>
+            </div>
+            <div class="skill">
+              <div class="skill-top"><span>Node.js / Bases de données</span><span>75%</span></div>
+              <div class="skill-bar"><span style="--w:75%"></span></div>
+            </div>
+            <div class="skill">
+              <div class="skill-top"><span>UI / UX Design (Figma)</span><span>85%</span></div>
+              <div class="skill-bar"><span style="--w:85%"></span></div>
+            </div>
+            <div class="skill">
+              <div class="skill-top"><span>Outils : Git, WordPress, Photoshop</span><span>80%</span></div>
+              <div class="skill-bar"><span style="--w:80%"></span></div>
+            </div>
+          </div>
+
+          <div class="skills-col reveal">
+            <h3 class="skills-title">💼 Soft skills</h3>
+            <div class="tags-cloud">
+              <span class="tag">Travail d'équipe</span>
+              <span class="tag">Communication</span>
+              <span class="tag">Résolution de problèmes</span>
+              <span class="tag">Créativité</span>
+              <span class="tag">Gestion du temps</span>
+              <span class="tag">Adaptabilité</span>
+              <span class="tag">Leadership</span>
+              <span class="tag">Sens du détail</span>
+              <span class="tag">Apprentissage rapide</span>
+            </div>
+
+            <div class="certif-box">
+              <h3 class="skills-title">📜 Certifications & formations</h3>
+              <ul class="certif-list">
+                <li><strong>Certification en Développement Web</strong> — 2024</li>
+                <li><strong>Formation UI/UX Design</strong> — 2023</li>
+                <li><strong>Certificat Google Digital Skills</strong> — 2023</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== RÉALISATIONS ====== -->
+    <section class="section" id="realisations">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-tag">Portfolio</span>
+          <h2 class="section-title">Mes réalisations</h2>
+          <p class="section-sub">Cliquez sur un projet pour le visualiser en grand et découvrir les détails.</p>
+        </div>
+
+        <!-- Filtres -->
+        <div class="filters reveal" id="filters">
+          <button class="filter-btn active" data-filter="all">Tous</button>
+          <button class="filter-btn" data-filter="web">Web</button>
+          <button class="filter-btn" data-filter="mobile">Mobile</button>
+          <button class="filter-btn" data-filter="design">Design</button>
+        </div>
+
+        <!-- Grille de projets -->
+        <div class="projects-grid" id="projects-grid">
+          <!-- Projet 1 -->
+          <article class="project-card reveal" data-category="web" data-index="0">
+            <div class="project-thumb">
+              <img src="assets/img/projects/dashboard.png" alt="Application de tableau de bord analytique" loading="lazy" />
+              <div class="project-overlay">
+                <span class="project-zoom">🔍 Visualiser</span>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-cat">Web</span>
+              <h3>Dashboard Analytics</h3>
+            </div>
+          </article>
+
+          <!-- Projet 2 -->
+          <article class="project-card reveal" data-category="mobile" data-index="1">
+            <div class="project-thumb">
+              <img src="assets/img/projects/mobile-app.png" alt="Application mobile de suivi sportif" loading="lazy" />
+              <div class="project-overlay">
+                <span class="project-zoom">🔍 Visualiser</span>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-cat">Mobile</span>
+              <h3>App Fitness Tracker</h3>
+            </div>
+          </article>
+
+          <!-- Projet 3 -->
+          <article class="project-card reveal" data-category="web" data-index="2">
+            <div class="project-thumb">
+              <img src="assets/img/projects/ecommerce.png" alt="Site e-commerce de vêtements" loading="lazy" />
+              <div class="project-overlay">
+                <span class="project-zoom">🔍 Visualiser</span>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-cat">Web</span>
+              <h3>Boutique en ligne</h3>
+            </div>
+          </article>
+
+          <!-- Projet 4 -->
+          <article class="project-card reveal" data-category="design" data-index="3">
+            <div class="project-thumb">
+              <img src="assets/img/projects/branding.png" alt="Création d'identité visuelle" loading="lazy" />
+              <div class="project-overlay">
+                <span class="project-zoom">🔍 Visualiser</span>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-cat">Design</span>
+              <h3>Identité visuelle & branding</h3>
+            </div>
+          </article>
+
+          <!-- Projet 5 -->
+          <article class="project-card reveal" data-category="web" data-index="4">
+            <div class="project-thumb">
+              <img src="assets/img/projects/restaurant.png" alt="Site vitrine de restaurant" loading="lazy" />
+              <div class="project-overlay">
+                <span class="project-zoom">🔍 Visualiser</span>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-cat">Web</span>
+              <h3>Site restaurant gastronomique</h3>
+            </div>
+          </article>
+
+          <!-- Projet 6 -->
+          <article class="project-card reveal" data-category="design" data-index="5">
+            <div class="project-thumb">
+              <img src="assets/img/projects/landing.png" alt="Landing page pour startup" loading="lazy" />
+              <div class="project-overlay">
+                <span class="project-zoom">🔍 Visualiser</span>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-cat">Design</span>
+              <h3>Landing page startup</h3>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== PARCOURS ====== -->
+    <section class="section section-alt" id="parcours">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-tag">Parcours</span>
+          <h2 class="section-title">Mon expérience & ma formation</h2>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <span class="timeline-date">2024 — Présent</span>
+              <h3>Développeur Web / Designer</h3>
+              <p>Conception et développement de sites web et d'applications pour divers clients : vitrines, e-commerce, dashboards.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <span class="timeline-date">2023 — 2024</span>
+              <h3>Freelance — Créateur digital</h3>
+              <p>Réalisation de projets web et graphiques en freelance : sites vitrines, logos, supports de communication.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <span class="timeline-date">2022 — 2023</span>
+              <h3>Stage — Développement web</h3>
+              <p>Intégration de maquettes, développement front-end et participation aux projets d'équipe au sein d'une agence digitale.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <span class="timeline-date">2020 — 2023</span>
+              <h3>Formation — Informatique / Développement</h3>
+              <p>Formation en informatique et développement web : programmation, bases de données, gestion de projet et design.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== CONTACT ====== -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-tag">Contact</span>
+          <h2 class="section-title">Travaillons ensemble</h2>
+          <p class="section-sub">Un projet en tête ? Écrivez-moi, je réponds rapidement.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-infos reveal">
+            <div class="contact-info-item">
+              <span class="ci-icon">📧</span>
+              <div><strong>Email</strong><a href="mailto:contact@example.com">contact@example.com</a></div>
+            </div>
+            <div class="contact-info-item">
+              <span class="ci-icon">📱</span>
+              <div><strong>Téléphone</strong><a href="tel:+2250000000000">+225 00 00 00 00 00</a></div>
+            </div>
+            <div class="contact-info-item">
+              <span class="ci-icon">📍</span>
+              <div><strong>Localisation</strong><span>Abidjan, Côte d'Ivoire</span></div>
+            </div>
+            <div class="contact-info-item">
+              <span class="ci-icon">💼</span>
+              <div><strong>Disponibilité</strong><span class="badge-ok">● Disponible pour missions</span></div>
+            </div>
+          </div>
+
+          <form class="contact-form reveal" id="contact-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Nom complet</label>
+                <input type="text" id="name" name="name" placeholder="Votre nom" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="votre@email.com" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="subject">Sujet</label>
+              <input type="text" id="subject" name="subject" placeholder="Objet de votre message" />
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="Parlez-moi de votre projet..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Envoyer le message ✈️</button>
+            <p class="form-note" id="form-note"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ====== FOOTER ====== -->
+  <footer class="footer">
+    <div class="container">
+      <a href="#accueil" class="footer-logo">K<span>B</span>.</a>
+      <p>© <span id="year">2026</span> KOUASSI BIGNON — Tous droits réservés.</p>
+      <div class="footer-socials">
+        <a href="https://github.com/" target="_blank" rel="noopener" aria-label="GitHub">GitHub</a>
+        <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+        <a href="mailto:contact@example.com">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ====== LIGHTBOX (visualisation des réalisations) ====== -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visualisation du projet" hidden>
+    <button class="lightbox-close" id="lightbox-close" aria-label="Fermer">✕</button>
+    <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Projet précédent">‹</button>
+    <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Projet suivant">›</button>
+
+    <div class="lightbox-content">
+      <figure>
+        <img src="" alt="" id="lightbox-image" />
+      </figure>
+      <div class="lightbox-body">
+        <div class="lightbox-head">
+          <span class="project-cat" id="lightbox-cat"></span>
+          <span class="lightbox-counter" id="lightbox-counter"></span>
+        </div>
+        <h3 id="lightbox-title"></h3>
+        <p id="lightbox-desc"></p>
+        <div class="lightbox-tags" id="lightbox-tags"></div>
+        <div class="lightbox-links" id="lightbox-links"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bouton retour en haut -->
+  <button class="back-to-top" id="back-to-top" aria-label="Retour en haut">↑</button>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
