@@ -1,0 +1,1981 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KOUASSI BIGNON | Brand Designer | Digital Communication Specialist</title>
+    <meta name="description" content="Portfolio officiel de Kouassi Bignon, spécialiste en branding, communication digitale, direction artistique, création de contenu et marketing digital.">
+    <meta name="author" content="Kouassi Bignon">
+    <meta name="keywords" content="Kouassi Bignon, Brand Designer, Communication Digitale, Direction Artistique, Yamoussoukro, Côte d'Ivoire, Infographe, Content Creator">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kouassibignon.com/">
+    <meta property="og:title" content="KOUASSI BIGNON | Brand Designer | Digital Communication Specialist">
+    <meta property="og:description" content="Portfolio officiel de Kouassi Bignon, spécialiste en branding, communication digitale, direction artistique, création de contenu et marketing digital.">
+    <meta property="og:image" content="Photo.jpg">
+    <meta property="og:locale" content="fr_CI">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="KOUASSI BIGNON | Brand Designer | Digital Communication Specialist">
+    <meta name="twitter:description" content="Portfolio officiel de Kouassi Bignon — Branding, Communication Digitale, Direction Artistique.">
+    <meta name="twitter:image" content="Photo.jpg">
+
+    <!-- JSON-LD Schema.org Person -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Kouassi Bignon",
+        "jobTitle": ["Brand Designer", "Digital Communication Specialist", "Creative Director"],
+        "url": "https://kouassibignon.com",
+        "email": "bignonkouassi@gmail.com",
+        "telephone": "+2250506652583",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Yamoussoukro",
+            "addressCountry": "CI"
+        },
+        "alumniOf": {
+            "@type": "EducationalOrganization",
+            "name": "Université Internationale de Yamoussoukro"
+        },
+        "knowsAbout": ["Branding", "Graphic Design", "Digital Marketing", "Art Direction", "Content Creation", "Social Media Management"],
+        "sameAs": [
+            "https://www.facebook.com/share/18gFDCPWDR/?mibextid=wwXIfr",
+            "https://www.linkedin.com/in/bignon-kouassi-57311938a"
+        ]
+    }
+    </script>
+
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* ============================================
+           DESIGN SYSTEM
+           ============================================ */
+        :root {
+            --black: #050505;
+            --black2: #0a0a0a;
+            --dark: #111111;
+            --dark2: #161616;
+            --dark3: #1a1a1a;
+            --gray: #888888;
+            --gray2: #555555;
+            --light: #e0e0e0;
+            --white: #f5f5f7;
+            --pure-white: #ffffff;
+
+            --accent: #7c5cfc;
+            --accent-light: #9b82fc;
+            --accent-dark: #5b3fd4;
+            --accent-glow: rgba(124, 92, 252, 0.35);
+            --accent-subtle: rgba(124, 92, 252, 0.08);
+
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.06);
+            --glass-hover: rgba(255, 255, 255, 0.06);
+
+            --font-heading: 'Space Grotesk', sans-serif;
+            --font-body: 'Inter', sans-serif;
+
+            --ease: cubic-bezier(0.22, 1, 0.36, 1);
+            --ease-out: cubic-bezier(0, 0, 0.2, 1);
+            --radius: 16px;
+            --radius-sm: 10px;
+            --radius-lg: 24px;
+            --radius-xl: 32px;
+        }
+
+        /* ============================================
+           RESET & BASE
+           ============================================ */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--black);
+            color: var(--light);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        ::selection { background: var(--accent); color: var(--pure-white); }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--black); }
+        ::-webkit-scrollbar-thumb { background: var(--dark3); border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+        a { color: inherit; text-decoration: none; }
+        img { max-width: 100%; display: block; }
+        button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* ============================================
+           CUSTOM CURSOR
+           ============================================ */
+        .cursor {
+            position: fixed;
+            width: 20px; height: 20px;
+            border: 2px solid var(--accent);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 99999;
+            transition: transform 0.15s var(--ease), opacity 0.15s;
+            transform: translate(-50%, -50%);
+            mix-blend-mode: difference;
+        }
+        .cursor-dot {
+            position: fixed;
+            width: 4px; height: 4px;
+            background: var(--accent);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 99999;
+            transform: translate(-50%, -50%);
+        }
+        .cursor.hover { transform: translate(-50%, -50%) scale(2.5); border-color: var(--accent-light); }
+
+        /* ============================================
+           LOADER
+           ============================================ */
+        .loader {
+            position: fixed; inset: 0; z-index: 100000;
+            background: var(--black);
+            display: flex; align-items: center; justify-content: center;
+            flex-direction: column; gap: 30px;
+            transition: opacity 0.6s var(--ease), visibility 0.6s;
+        }
+        .loader.done { opacity: 0; visibility: hidden; pointer-events: none; }
+        .loader-name {
+            font-family: var(--font-heading);
+            font-size: 2.5rem; font-weight: 700;
+            letter-spacing: -1px;
+            opacity: 0; transform: translateY(20px);
+        }
+        .loader-bar {
+            width: 200px; height: 2px;
+            background: var(--dark3);
+            border-radius: 1px;
+            overflow: hidden;
+            opacity: 0;
+        }
+        .loader-bar-fill {
+            width: 0; height: 100%;
+            background: var(--accent);
+            border-radius: 1px;
+            transition: width 1.2s var(--ease);
+        }
+
+        /* ============================================
+           NAVIGATION
+           ============================================ */
+        .nav {
+            position: fixed; top: 0; left: 0; right: 0;
+            z-index: 1000;
+            padding: 0 40px;
+            height: 80px;
+            display: flex; align-items: center; justify-content: space-between;
+            transition: all 0.4s var(--ease);
+        }
+        .nav.scrolled {
+            background: rgba(5, 5, 5, 0.85);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid var(--glass-border);
+            height: 70px;
+        }
+        .nav-logo {
+            font-family: var(--font-heading);
+            font-size: 1.4rem; font-weight: 700;
+            letter-spacing: -0.5px;
+            color: var(--pure-white);
+        }
+        .nav-logo span { color: var(--accent); }
+        .nav-links { display: flex; gap: 36px; list-style: none; }
+        .nav-links a {
+            font-size: 0.82rem; font-weight: 500;
+            color: var(--gray);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            position: relative;
+            transition: color 0.3s;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute; bottom: -4px; left: 0;
+            width: 0; height: 1.5px;
+            background: var(--accent);
+            transition: width 0.3s var(--ease);
+        }
+        .nav-links a:hover { color: var(--pure-white); }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-cta {
+            padding: 10px 24px;
+            background: var(--accent);
+            color: var(--pure-white);
+            font-size: 0.82rem; font-weight: 600;
+            border-radius: 50px;
+            letter-spacing: 0.3px;
+            transition: all 0.3s var(--ease);
+        }
+        .nav-cta:hover {
+            background: var(--accent-light);
+            box-shadow: 0 4px 25px var(--accent-glow);
+            transform: translateY(-1px);
+        }
+        .nav-burger {
+            display: none;
+            flex-direction: column; gap: 6px;
+            cursor: pointer; padding: 8px;
+        }
+        .nav-burger span {
+            width: 24px; height: 2px;
+            background: var(--pure-white);
+            transition: all 0.3s var(--ease);
+            transform-origin: center;
+        }
+        .nav-burger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .nav-burger.open span:nth-child(2) { opacity: 0; }
+        .nav-burger.open span:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
+
+        .mobile-menu {
+            position: fixed; inset: 0; z-index: 999;
+            background: rgba(5, 5, 5, 0.97);
+            backdrop-filter: blur(30px);
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            gap: 32px;
+            opacity: 0; visibility: hidden;
+            transition: all 0.4s var(--ease);
+        }
+        .mobile-menu.open { opacity: 1; visibility: visible; }
+        .mobile-menu a {
+            font-family: var(--font-heading);
+            font-size: 2rem; font-weight: 600;
+            color: var(--gray);
+            transition: color 0.3s;
+        }
+        .mobile-menu a:hover { color: var(--accent); }
+
+        /* ============================================
+           HERO SECTION
+           ============================================ */
+        .hero {
+            min-height: 100vh;
+            display: flex; align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 120px 0 80px;
+        }
+        .hero-bg {
+            position: absolute; inset: 0; z-index: 0;
+        }
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: -30%; right: -20%;
+            width: 800px; height: 800px;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            filter: blur(120px);
+            opacity: 0.4;
+            animation: heroGlow 8s ease-in-out infinite alternate;
+        }
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            bottom: -20%; left: -10%;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(124,92,252,0.15) 0%, transparent 70%);
+            filter: blur(100px);
+            opacity: 0.3;
+            animation: heroGlow 10s ease-in-out infinite alternate-reverse;
+        }
+        @keyframes heroGlow {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(30px, -20px) scale(1.1); }
+        }
+
+        /* Grid pattern */
+        .hero-grid-pattern {
+            position: absolute; inset: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+            background-size: 80px 80px;
+            mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+            -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            position: relative; z-index: 2;
+        }
+        .hero-text { max-width: 600px; }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: var(--accent-subtle);
+            border: 1px solid rgba(124,92,252,0.15);
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 0.8rem; font-weight: 500;
+            color: var(--accent-light);
+            margin-bottom: 28px;
+            letter-spacing: 0.3px;
+        }
+        .hero-badge .pulse {
+            width: 8px; height: 8px;
+            background: #4ade80;
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(74,222,128,0.4); }
+            50% { opacity: 0.8; box-shadow: 0 0 0 8px rgba(74,222,128,0); }
+        }
+        .hero-title {
+            font-family: var(--font-heading);
+            font-size: clamp(3rem, 5.5vw, 5rem);
+            font-weight: 700;
+            line-height: 1.05;
+            letter-spacing: -2px;
+            margin-bottom: 8px;
+            color: var(--pure-white);
+        }
+        .hero-title .accent { color: var(--accent); }
+        .hero-roles {
+            display: flex; flex-wrap: wrap; gap: 8px;
+            margin-bottom: 24px;
+        }
+        .hero-role {
+            font-family: var(--font-heading);
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: var(--gray);
+            letter-spacing: -0.3px;
+        }
+        .hero-role::after { content: '·'; margin-left: 8px; color: var(--accent); }
+        .hero-role:last-child::after { content: ''; }
+        .hero-desc {
+            font-size: 1.08rem;
+            color: var(--gray);
+            line-height: 1.8;
+            margin-bottom: 40px;
+            max-width: 500px;
+        }
+        .hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; }
+        .btn {
+            display: inline-flex; align-items: center; gap: 10px;
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-size: 0.9rem; font-weight: 600;
+            letter-spacing: 0.2px;
+            transition: all 0.35s var(--ease);
+            position: relative; overflow: hidden;
+        }
+        .btn-primary {
+            background: var(--accent);
+            color: var(--pure-white);
+            box-shadow: 0 4px 30px var(--accent-glow);
+        }
+        .btn-primary:hover {
+            background: var(--accent-light);
+            box-shadow: 0 8px 40px var(--accent-glow);
+            transform: translateY(-2px);
+        }
+        .btn-outline {
+            background: transparent;
+            color: var(--light);
+            border: 1.5px solid var(--glass-border);
+        }
+        .btn-outline:hover {
+            border-color: var(--accent);
+            color: var(--accent-light);
+            background: var(--accent-subtle);
+            transform: translateY(-2px);
+        }
+        .btn i { font-size: 0.85rem; }
+
+        .hero-photo {
+            display: flex; justify-content: center; align-items: center;
+            position: relative;
+        }
+        .hero-photo-frame {
+            position: relative;
+            width: 420px; height: 500px;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+        }
+        .hero-photo-frame img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            object-position: top center;
+            filter: grayscale(20%) contrast(1.05);
+            transition: filter 0.5s;
+        }
+        .hero-photo-frame:hover img { filter: grayscale(0%) contrast(1.1); }
+        .hero-photo-frame::after {
+            content: '';
+            position: absolute; inset: 0;
+            background: linear-gradient(180deg, transparent 50%, rgba(5,5,5,0.6) 100%);
+            pointer-events: none;
+        }
+        .photo-accent {
+            position: absolute;
+            width: 420px; height: 500px;
+            border-radius: var(--radius-xl);
+            border: 1px solid rgba(124,92,252,0.2);
+            top: 20px; right: -20px;
+            z-index: -1;
+            opacity: 0.5;
+        }
+        .photo-glow {
+            position: absolute;
+            width: 300px; height: 300px;
+            background: var(--accent);
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.12;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
+
+        /* Floating elements */
+        .float-element {
+            position: absolute;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            border-radius: var(--radius-sm);
+            padding: 12px 18px;
+            font-size: 0.78rem;
+            color: var(--gray);
+            z-index: 3;
+        }
+        .float-element i { color: var(--accent); margin-right: 6px; }
+        .float-1 { bottom: 80px; left: -20px; }
+        .float-2 { top: 60px; right: -30px; }
+
+        /* ============================================
+           SECTION COMMON
+           ============================================ */
+        .section {
+            padding: 120px 0;
+            position: relative;
+        }
+        .section-label {
+            display: inline-flex; align-items: center; gap: 10px;
+            font-size: 0.75rem; font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+        .section-label::before {
+            content: '';
+            width: 30px; height: 1.5px;
+            background: var(--accent);
+        }
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: clamp(2.2rem, 4vw, 3.2rem);
+            font-weight: 700;
+            letter-spacing: -1.5px;
+            line-height: 1.15;
+            color: var(--pure-white);
+            margin-bottom: 20px;
+        }
+        .section-subtitle {
+            font-size: 1.05rem;
+            color: var(--gray);
+            max-width: 560px;
+            line-height: 1.8;
+        }
+        .section-header { margin-bottom: 60px; }
+        .divider {
+            width: 100%; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--glass-border), transparent);
+        }
+
+        /* ============================================
+           ABOUT SECTION
+           ============================================ */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+        .about-text p {
+            color: var(--gray);
+            font-size: 1.02rem;
+            margin-bottom: 20px;
+            line-height: 1.85;
+        }
+        .about-tags {
+            display: flex; flex-wrap: wrap; gap: 10px;
+            margin-top: 30px;
+        }
+        .about-tag {
+            padding: 8px 18px;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            font-size: 0.82rem; font-weight: 500;
+            color: var(--light);
+            transition: all 0.3s var(--ease);
+        }
+        .about-tag:hover {
+            border-color: var(--accent);
+            color: var(--accent-light);
+            background: var(--accent-subtle);
+        }
+        .about-experience {
+            display: flex; flex-direction: column; gap: 20px;
+        }
+        .exp-card {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius);
+            padding: 28px;
+            transition: all 0.3s var(--ease);
+        }
+        .exp-card:hover {
+            border-color: rgba(124,92,252,0.2);
+            background: var(--glass-hover);
+            transform: translateX(6px);
+        }
+        .exp-card h4 {
+            font-family: var(--font-heading);
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--pure-white);
+            margin-bottom: 4px;
+        }
+        .exp-card .exp-company {
+            font-size: 0.85rem;
+            color: var(--accent-light);
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        .exp-card p {
+            font-size: 0.88rem;
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+        /* ============================================
+           STATS SECTION
+           ============================================ */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+        .stat-card {
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius);
+            transition: all 0.3s var(--ease);
+        }
+        .stat-card:hover {
+            border-color: rgba(124,92,252,0.2);
+            transform: translateY(-4px);
+        }
+        .stat-number {
+            font-family: var(--font-heading);
+            font-size: 3.2rem;
+            font-weight: 700;
+            color: var(--pure-white);
+            letter-spacing: -2px;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        .stat-number span { color: var(--accent); }
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--gray);
+            font-weight: 500;
+        }
+
+        /* ============================================
+           SERVICES SECTION
+           ============================================ */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .service-card {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius);
+            padding: 36px 28px;
+            transition: all 0.4s var(--ease);
+            position: relative;
+            overflow: hidden;
+            cursor: default;
+        }
+        .service-card::before {
+            content: '';
+            position: absolute; top: 0; left: 0;
+            width: 100%; height: 2px;
+            background: linear-gradient(90deg, var(--accent), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .service-card:hover {
+            border-color: rgba(124,92,252,0.2);
+            background: var(--glass-hover);
+            transform: translateY(-6px);
+        }
+        .service-card:hover::before { opacity: 1; }
+        .service-icon {
+            width: 52px; height: 52px;
+            display: flex; align-items: center; justify-content: center;
+            background: var(--accent-subtle);
+            border-radius: 14px;
+            font-size: 1.3rem;
+            color: var(--accent);
+            margin-bottom: 22px;
+            transition: all 0.3s;
+        }
+        .service-card:hover .service-icon {
+            background: var(--accent);
+            color: var(--pure-white);
+            box-shadow: 0 4px 20px var(--accent-glow);
+        }
+        .service-card h4 {
+            font-family: var(--font-heading);
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--pure-white);
+            margin-bottom: 10px;
+        }
+        .service-card p {
+            font-size: 0.88rem;
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+        /* ============================================
+           PORTFOLIO SECTION
+           ============================================ */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+        .portfolio-card {
+            position: relative;
+            background: var(--dark2);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            cursor: pointer;
+            aspect-ratio: 16/10;
+            transition: all 0.4s var(--ease);
+        }
+        .portfolio-card:hover {
+            border-color: rgba(124,92,252,0.3);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+        .portfolio-card-bg {
+            position: absolute; inset: 0;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 5rem;
+            color: var(--accent);
+            opacity: 0.06;
+            transition: all 0.4s;
+        }
+        .portfolio-card:hover .portfolio-card-bg { opacity: 0.1; transform: scale(1.1); }
+        .portfolio-card-content {
+            position: absolute; inset: 0;
+            display: flex; flex-direction: column;
+            justify-content: flex-end;
+            padding: 36px;
+            background: linear-gradient(180deg, transparent 30%, rgba(5,5,5,0.8) 100%);
+            z-index: 2;
+        }
+        .portfolio-card-cat {
+            display: inline-flex; align-items: center; gap: 6px;
+            background: var(--accent-subtle);
+            border: 1px solid rgba(124,92,252,0.15);
+            padding: 5px 14px;
+            border-radius: 50px;
+            font-size: 0.72rem; font-weight: 600;
+            color: var(--accent-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 14px;
+            width: fit-content;
+        }
+        .portfolio-card h3 {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--pure-white);
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+        }
+        .portfolio-card p {
+            font-size: 0.88rem;
+            color: var(--gray);
+            line-height: 1.6;
+            max-width: 400px;
+        }
+        .portfolio-card-arrow {
+            position: absolute; top: 24px; right: 24px;
+            width: 44px; height: 44px;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--pure-white);
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            z-index: 3;
+        }
+        .portfolio-card:hover .portfolio-card-arrow {
+            background: var(--accent);
+            border-color: var(--accent);
+            box-shadow: 0 4px 20px var(--accent-glow);
+        }
+
+        /* ============================================
+           VIDEO SECTION
+           ============================================ */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+        .video-card {
+            position: relative;
+            background: var(--dark2);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            cursor: pointer;
+            aspect-ratio: 16/9;
+            transition: all 0.4s var(--ease);
+        }
+        .video-card:hover {
+            border-color: rgba(124,92,252,0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+        .video-thumb {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s var(--ease);
+        }
+        .video-card:hover .video-thumb { transform: scale(1.05); }
+        .video-play {
+            position: absolute; inset: 0;
+            display: flex; align-items: center; justify-content: center;
+            background: rgba(0,0,0,0.3);
+            transition: background 0.3s;
+            z-index: 2;
+        }
+        .video-card:hover .video-play { background: rgba(0,0,0,0.15); }
+        .video-play-btn {
+            width: 70px; height: 70px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--pure-white);
+            font-size: 1.4rem;
+            box-shadow: 0 8px 30px var(--accent-glow);
+            transition: all 0.3s;
+        }
+        .video-card:hover .video-play-btn {
+            transform: scale(1.1);
+            box-shadow: 0 12px 40px var(--accent-glow);
+        }
+        .video-info {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            padding: 24px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            z-index: 3;
+        }
+        .video-info h4 {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--pure-white);
+        }
+
+        /* ============================================
+           EXPERIENCE TIMELINE
+           ============================================ */
+        .timeline { position: relative; padding-left: 40px; }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 12px; top: 0; bottom: 0;
+            width: 1px;
+            background: linear-gradient(180deg, var(--accent), var(--glass-border), transparent);
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 32px;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius);
+            padding: 28px 32px;
+            transition: all 0.3s var(--ease);
+        }
+        .timeline-item:hover {
+            border-color: rgba(124,92,252,0.2);
+            transform: translateX(8px);
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -34px; top: 32px;
+            width: 12px; height: 12px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: 3px solid var(--black);
+            box-shadow: 0 0 0 2px var(--accent), 0 0 12px var(--accent-glow);
+        }
+        .timeline-date {
+            display: inline-block;
+            font-size: 0.75rem; font-weight: 600;
+            color: var(--accent-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+        .timeline-item h4 {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--pure-white);
+            margin-bottom: 4px;
+        }
+        .timeline-item .tl-company {
+            font-size: 0.88rem;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+        .timeline-item ul {
+            list-style: none;
+            margin-top: 8px;
+        }
+        .timeline-item ul li {
+            font-size: 0.88rem;
+            color: var(--gray);
+            padding: 3px 0 3px 18px;
+            position: relative;
+            line-height: 1.6;
+        }
+        .timeline-item ul li::before {
+            content: '→';
+            position: absolute; left: 0;
+            color: var(--accent);
+            font-size: 0.8rem;
+        }
+
+        /* ============================================
+           SKILLS
+           ============================================ */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 18px;
+        }
+        .skill-bar {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-sm);
+            padding: 18px 24px;
+            transition: all 0.3s var(--ease);
+        }
+        .skill-bar:hover {
+            border-color: rgba(124,92,252,0.2);
+            background: var(--glass-hover);
+        }
+        .skill-bar-header {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 10px;
+        }
+        .skill-bar-name {
+            font-family: var(--font-heading);
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: var(--pure-white);
+        }
+        .skill-bar-pct {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--accent-light);
+        }
+        .skill-bar-track {
+            width: 100%; height: 4px;
+            background: rgba(255,255,255,0.04);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        .skill-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent), var(--accent-light));
+            border-radius: 2px;
+            width: 0;
+            transition: width 1.2s var(--ease);
+        }
+
+        /* ============================================
+           CERTIFICATIONS
+           ============================================ */
+        .certs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 18px;
+        }
+        .cert-card {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius);
+            padding: 28px;
+            display: flex; align-items: center; gap: 18px;
+            transition: all 0.3s var(--ease);
+        }
+        .cert-card:hover {
+            border-color: rgba(124,92,252,0.2);
+            transform: translateY(-4px);
+        }
+        .cert-icon {
+            width: 50px; height: 50px; flex-shrink: 0;
+            display: flex; align-items: center; justify-content: center;
+            background: var(--accent-subtle);
+            border-radius: 14px;
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+        .cert-card h5 {
+            font-family: var(--font-heading);
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--pure-white);
+            margin-bottom: 4px;
+        }
+        .cert-card .cert-org {
+            font-size: 0.82rem;
+            color: var(--gray);
+        }
+
+        /* ============================================
+           CV SECTION
+           ============================================ */
+        .cv-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        .cv-preview {
+            background: var(--dark2);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            aspect-ratio: 3/4;
+            display: flex; align-items: center; justify-content: center;
+            position: relative;
+        }
+        .cv-preview object, .cv-preview iframe {
+            width: 100%; height: 100%;
+            border: none;
+        }
+        .cv-placeholder {
+            text-align: center;
+            color: var(--gray);
+        }
+        .cv-placeholder i { font-size: 4rem; color: var(--accent); opacity: .2; margin-bottom: 16px; }
+        .cv-info h3 {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--pure-white);
+            letter-spacing: -1px;
+            margin-bottom: 16px;
+        }
+        .cv-info p {
+            font-size: 1rem;
+            color: var(--gray);
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        /* ============================================
+           CONTACT
+           ============================================ */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        .contact-cards { display: flex; flex-direction: column; gap: 16px; }
+        .contact-card {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius);
+            padding: 24px 28px;
+            display: flex; align-items: center; gap: 18px;
+            transition: all 0.3s var(--ease);
+        }
+        .contact-card:hover {
+            border-color: rgba(124,92,252,0.2);
+            transform: translateX(6px);
+        }
+        .contact-card-icon {
+            width: 50px; height: 50px; flex-shrink: 0;
+            display: flex; align-items: center; justify-content: center;
+            background: var(--accent-subtle);
+            border-radius: 14px;
+            color: var(--accent);
+            font-size: 1.1rem;
+        }
+        .contact-card .cc-label {
+            font-size: 0.75rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .contact-card .cc-value {
+            font-weight: 600;
+            color: var(--pure-white);
+            font-size: 0.98rem;
+        }
+        .contact-socials {
+            display: flex; gap: 12px; margin-top: 24px;
+        }
+        .social-btn {
+            width: 48px; height: 48px;
+            display: flex; align-items: center; justify-content: center;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 14px;
+            color: var(--gray);
+            font-size: 1.05rem;
+            transition: all 0.3s var(--ease);
+        }
+        .social-btn:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: var(--pure-white);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px var(--accent-glow);
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        .footer {
+            padding: 60px 0;
+            border-top: 1px solid var(--glass-border);
+        }
+        .footer-content {
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .footer-logo {
+            font-family: var(--font-heading);
+            font-size: 1.3rem; font-weight: 700;
+            color: var(--pure-white);
+        }
+        .footer-logo span { color: var(--accent); }
+        .footer-copy {
+            font-size: 0.85rem;
+            color: var(--gray2);
+        }
+        .footer-copy a { color: var(--accent-light); }
+        .back-top {
+            width: 44px; height: 44px;
+            display: flex; align-items: center; justify-content: center;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 50%;
+            color: var(--gray);
+            font-size: 0.9rem;
+            transition: all 0.3s var(--ease);
+        }
+        .back-top:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: var(--pure-white);
+            transform: translateY(-3px);
+        }
+
+        /* ============================================
+           MODALS
+           ============================================ */
+        .modal-overlay {
+            position: fixed; inset: 0; z-index: 5000;
+            background: rgba(0,0,0,0.92);
+            backdrop-filter: blur(15px);
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; visibility: hidden;
+            transition: all 0.35s var(--ease);
+        }
+        .modal-overlay.active { opacity: 1; visibility: visible; }
+        .modal-close {
+            position: absolute; top: 24px; right: 24px;
+            width: 48px; height: 48px;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--pure-white);
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 10;
+        }
+        .modal-close:hover { background: var(--accent); border-color: var(--accent); }
+
+        /* Drive Modal */
+        .drive-modal {
+            width: 90vw; height: 85vh;
+            max-width: 1400px;
+            background: var(--dark);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            position: relative;
+            display: flex; flex-direction: column;
+        }
+        .drive-modal-header {
+            padding: 20px 28px;
+            border-bottom: 1px solid var(--glass-border);
+            display: flex; align-items: center; justify-content: space-between;
+            background: var(--dark2);
+            flex-shrink: 0;
+        }
+        .drive-modal-header h3 {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--pure-white);
+        }
+        .drive-modal-header a {
+            padding: 8px 18px;
+            background: var(--accent-subtle);
+            border: 1px solid rgba(124,92,252,0.2);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--accent-light);
+            transition: all 0.3s;
+        }
+        .drive-modal-header a:hover {
+            background: var(--accent);
+            color: var(--pure-white);
+        }
+        .drive-modal-body {
+            flex: 1;
+            overflow: hidden;
+        }
+        .drive-modal-body iframe {
+            width: 100%; height: 100%;
+            border: none;
+        }
+
+        /* Video Modal */
+        .video-modal {
+            width: 90vw; max-width: 1000px;
+            aspect-ratio: 16/9;
+            background: #000;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            position: relative;
+        }
+        .video-modal iframe {
+            width: 100%; height: 100%;
+            border: none;
+        }
+
+        /* ============================================
+           REVEAL ANIMATIONS
+           ============================================ */
+        .reveal { opacity: 0; transform: translateY(30px); }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 1024px) {
+            .hero-content { grid-template-columns: 1fr; gap: 50px; text-align: center; }
+            .hero-text { max-width: 100%; }
+            .hero-desc { max-width: 100%; }
+            .hero-buttons { justify-content: center; }
+            .hero-photo { order: -1; }
+            .hero-photo-frame { width: 320px; height: 380px; }
+            .photo-accent { width: 320px; height: 380px; }
+            .about-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .portfolio-grid { grid-template-columns: 1fr; }
+            .video-grid { grid-template-columns: 1fr; }
+            .cv-grid { grid-template-columns: 1fr; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .float-element { display: none; }
+        }
+        @media (max-width: 768px) {
+            .container { padding: 0 20px; }
+            .nav { padding: 0 20px; }
+            .nav-links { display: none; }
+            .nav-cta { display: none; }
+            .nav-burger { display: flex; }
+            .section { padding: 80px 0; }
+            .hero { padding: 100px 0 60px; }
+            .hero-title { font-size: 2.5rem; letter-spacing: -1px; }
+            .hero-photo-frame { width: 260px; height: 310px; }
+            .photo-accent { width: 260px; height: 310px; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+            .stat-number { font-size: 2.4rem; }
+            .services-grid { grid-template-columns: 1fr; }
+            .footer-content { flex-direction: column; gap: 20px; text-align: center; }
+            .drive-modal { width: 98vw; height: 90vh; }
+            .cursor, .cursor-dot { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<!-- LOADER -->
+<div class="loader" id="loader">
+    <div class="loader-name">KOUASSI BIGNON</div>
+    <div class="loader-bar"><div class="loader-bar-fill" id="loaderFill"></div></div>
+</div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+    <a href="#hero" class="nav-logo">KB<span>.</span></a>
+    <ul class="nav-links">
+        <li><a href="#about">À propos</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#experience">Parcours</a></li>
+        <li><a href="#skills">Compétences</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Me contacter</a>
+    <div class="nav-burger" id="navBurger">
+        <span></span><span></span><span></span>
+    </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+    <a href="#about">À propos</a>
+    <a href="#services">Services</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#experience">Parcours</a>
+    <a href="#skills">Compétences</a>
+    <a href="#contact">Contact</a>
+</div>
+
+<!-- ====== HERO ====== -->
+<section class="hero" id="hero">
+    <div class="hero-bg"><div class="hero-grid-pattern"></div></div>
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-badge">
+                    <span class="pulse"></span>
+                    Disponible pour de nouveaux projets
+                </div>
+                <h1 class="hero-title">
+                    KOUASSI<br><span class="accent">BIGNON</span>
+                </h1>
+                <div class="hero-roles">
+                    <span class="hero-role">Brand Designer</span>
+                    <span class="hero-role">Digital Communication Specialist</span>
+                    <span class="hero-role">Creative Director</span>
+                </div>
+                <p class="hero-desc">
+                    Je conçois des identités visuelles, des stratégies de communication et des expériences digitales qui renforcent durablement les marques.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#portfolio" class="btn btn-primary"><i class="fas fa-eye"></i> Voir mes réalisations</a>
+                    <a href="CV KOUASSI BIGNON _Résumé.pdf" download class="btn btn-outline"><i class="fas fa-download"></i> Télécharger mon CV</a>
+                    <a href="#contact" class="btn btn-outline"><i class="fas fa-paper-plane"></i> Me contacter</a>
+                </div>
+            </div>
+            <div class="hero-photo">
+                <div class="photo-glow"></div>
+                <div class="photo-accent"></div>
+                <div class="hero-photo-frame">
+                    <img src="Photo.jpg" alt="Kouassi Bignon — Brand Designer & Creative Director">
+                </div>
+                <div class="float-element float-1"><i class="fas fa-palette"></i> Brand Design</div>
+                <div class="float-element float-2"><i class="fas fa-rocket"></i> +100 projets</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ====== ABOUT ====== -->
+<div class="divider"></div>
+<section class="section" id="about">
+    <div class="container">
+        <div class="section-header reveal">
+            <div class="section-label">À propos</div>
+            <h2 class="section-title">Construire des marques<br>mémorables.</h2>
+        </div>
+        <div class="about-grid">
+            <div class="about-text reveal">
+                <p>Infographe, Brand Designer et Chargé de communication digitale basé à Yamoussoukro, Côte d'Ivoire. Je suis spécialisé dans la création d'identités visuelles fortes, la stratégie de communication digitale et la direction artistique événementielle.</p>
+                <p>Avec une expérience enrichie chez <strong style="color:var(--accent-light)">Invictus Agency</strong> et <strong style="color:var(--accent-light)">Loukou Event Studio</strong>, j'accompagne marques, entreprises et événements dans la construction de leur univers visuel — du concept créatif à la déclinaison complète sur tous les supports.</p>
+                <p>Diplômé d'une Licence en Communication à l'Université Internationale de Yamoussoukro, je mets à profit une double compétence créative et stratégique pour livrer des projets à la hauteur des standards internationaux.</p>
+                <div class="about-tags">
+                    <span class="about-tag">Infographe</span>
+                    <span class="about-tag">Brand Designer</span>
+                    <span class="about-tag">Communication Digitale</span>
+                    <span class="about-tag">Community Manager</span>
+                    <span class="about-tag">Content Creator</span>
+                    <span class="about-tag">Direction Artistique</span>
+                    <span class="about-tag">Marketing Digital</span>
+                    <span class="about-tag">Photographe</span>
+                    <span class="about-tag">Prompt Engineering</span>
+                    <span class="about-tag">Sérigraphie Numérique</span>
+                </div>
+            </div>
+            <div class="about-experience reveal">
+                <div class="exp-card">
+                    <h4>Invictus Agency</h4>
+                    <div class="exp-company">Concepteur Graphique Freelance — 2026 – Présent</div>
+                    <p>Conception d'identités visuelles complètes, production de supports de marque et garantie de cohérence graphique multi-supports.</p>
+                </div>
+                <div class="exp-card">
+                    <h4>Loukou Event Studio</h4>
+                    <div class="exp-company">Infographe & Photographe — 2024</div>
+                    <p>Couverture médiatique d'événements, création de supports graphiques avec outils PAO/édition professionnels.</p>
+                </div>
+                <div class="exp-card">
+                    <h4>Projets Événementiels</h4>
+                    <div class="exp-company">Directeur Artistique — 2022 – 2025</div>
+                    <p>BAL Heleis, PICNIC DAY, Happy Run, Yakro City — coordination et direction artistique d'événements majeurs.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ====== STATS ====== -->
+<section class="section" style="padding-top:0;">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-card reveal">
+                <div class="stat-number"><span>+</span><span class="counter" data-target="100">0</span></div>
+                <div class="stat-label">Visuels créés</div>
+            </div>
+            <div class="stat-card reveal">
+                <div class="stat-number"><span>+</span><span class="counter" data-target="20">0</span></div>
+                <div class="stat-label">Identités visuelles</div>
+            </div>
+            <div class="stat-card reveal">
+                <div class="stat-number"><span>+</span><span class="counter" data-target="10">0</span></div>
+                <div class="stat-label">Projets événementiels</div>
+            </div>
+            <div class="stat-card reveal">
+                <div class="stat-number"><span class="counter" data-target="5">0</span><span>+</span></div>
+                <div class="stat-label">Années d'expérience</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ====== SERVICES ====== -->
+<div class="divider"></div>
+<section class="section" id="services">
+    <div class="container">
+        <div class="section-header reveal">
+            <div class="section-label">Services</div>
+            <h2 class="section-title">Ce que je fais<br>le mieux.</h2>
+            <p class="section-subtitle">Des solutions créatives complètes pour donner vie à vos projets et renforcer votre présence visuelle.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card reveal">
+                <div class="service-icon"><i class="fas fa-gem"></i></div>
+                <h4>Brand Identity</h4>
+                <p>Création d'identités visuelles complètes et cohérentes qui reflètent l'essence de votre marque.</p>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-icon"><i class="fas fa-pen-nib"></i></div>
+                <h4>Logo Design</h4>
+                <p>Conception de logos mémorables, polyvalents et adaptés à tous vos supports de communication.</p>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-icon"><i class="fas fa-hashtag"></i></div>
+                <h4>Communication Digitale</h4>
+                <p>Stratégie de contenu social media, animation de pages et optimisation de votre visibilité en ligne.</p>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-icon"><i class="fas fa-paint-brush"></i></div>
+                <h4>Direction Artistique</h4>
+                <p>Conception d'univers visuels pour projets vidéo, événements et campagnes créatives.</p>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-icon"><i class="fas fa-print"></i></div>
+                <h4>Design Print</h4>
+                <p>Création de supports imprimés haute qualité : flyers, affiches, brochures, cartes de visite.</p>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-icon"><i class="fas fa-share-alt"></i></div>
+                <h4>Social Media Design</h4>
+                <p>Visuels percutants pour vos réseaux sociaux, optimisés pour chaque plateforme.</p>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-icon"><i class="fas fa-camera"></i></div>
+                <h4>Photographie</h4>
+                <p>Couverture photographique d'événements, shooting produit et contenu visuel professionnel.</p>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-icon"><i class="fas fa-video"></i></div>
+                <h4>Vidéo & Motion Design</h4>
+                <p>Production vidéo, aftermovies, contenus animés pour réseaux sociaux et campagnes digitales.</p>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-icon"><i class="fas fa-bullhorn"></i></div>
+                <h4>Marketing Digital</h4>
+                <p>Stratégie marketing complète, publicité en ligne, suivi de performance et optimisation des campagnes.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ====== PORTFOLIO ====== -->
+<div class="divider"></div>
+<section class="section" id="portfolio">
+    <div class="container">
+        <div class="section-header reveal">
+            <div class="section-label">Portfolio</div>
+            <h2 class="section-title">Mes<br>réalisations.</h2>
+            <p class="section-subtitle">Découvrez une sélection de projets qui illustrent mon expertise en branding, design et communication digitale.</p>
+        </div>
+        <div class="portfolio-grid">
+            <div class="portfolio-card reveal" onclick="openDrive('Branding', 'https://drive.google.com/drive/folders/1iTrUUUOPGGUfc5KK-RLnoPKsfZG0XclE')">
+                <div class="portfolio-card-bg"><i class="fas fa-gem"></i></div>
+                <div class="portfolio-card-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="portfolio-card-content">
+                    <div class="portfolio-card-cat"><i class="fas fa-gem"></i> Branding</div>
+                    <h3>Identités Visuelles</h3>
+                    <p>Chartes graphiques, déclinaisons print & digital, univers de marque complets.</p>
+                </div>
+            </div>
+            <div class="portfolio-card reveal" onclick="openDrive('Logos', 'https://drive.google.com/drive/folders/167Q2G4sUgtAhHv2HO6AMXyzAZ6Jgtf0M')">
+                <div class="portfolio-card-bg"><i class="fas fa-pen-nib"></i></div>
+                <div class="portfolio-card-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="portfolio-card-content">
+                    <div class="portfolio-card-cat"><i class="fas fa-pen-nib"></i> Logos</div>
+                    <h3>Création de Logos</h3>
+                    <p>Logos mémorables et polyvalents pour entreprises, événements et marques personnelles.</p>
+                </div>
+            </div>
+            <div class="portfolio-card reveal" onclick="openDrive('Flyers', 'https://drive.google.com/drive/folders/1g0cBpWiQtell3kSsx-L4Yx23JVlp7PXj')">
+                <div class="portfolio-card-bg"><i class="fas fa-file-image"></i></div>
+                <div class="portfolio-card-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="portfolio-card-content">
+                    <div class="portfolio-card-cat"><i class="fas fa-file-image"></i> Flyers</div>
+                    <h3>Design Print & Flyers</h3>
+                    <p>Affiches, flyers, brochures et supports de communication imprimés.</p>
+                </div>
+            </div>
+            <div class="portfolio-card reveal" onclick="openDrive('Sérigraphie', 'https://drive.google.com/drive/folders/1df5bfavnB5eRlxELKXHhLdGcIIJQ6MCX')">
+                <div class="portfolio-card-bg"><i class="fas fa-tshirt"></i></div>
+                <div class="portfolio-card-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="portfolio-card-content">
+                    <div class="portfolio-card-cat"><i class="fas fa-tshirt"></i> Sérigraphie</div>
+                    <h3>Sérigraphie Numérique</h3>
+                    <p>Impression textile, préparation de fichiers et contrôle qualité pour projets sérigraphiés.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ====== VIDEOS ====== -->
+<div class="divider"></div>
+<section class="section" id="videos">
+    <div class="container">
+        <div class="section-header reveal">
+            <div class="section-label">Vidéos</div>
+            <h2 class="section-title">Projets<br>vidéo.</h2>
+            <p class="section-subtitle">Direction artistique et production vidéo — découvrez mes réalisations en mouvement.</p>
+        </div>
+        <div class="video-grid">
+            <div class="video-card reveal" onclick="openVideo('RN9XnFbzAag')">
+                <img class="video-thumb" src="https://img.youtube.com/vi/RN9XnFbzAag/maxresdefault.jpg" alt="Publicité BB Charwarma" loading="lazy">
+                <div class="video-play"><div class="video-play-btn"><i class="fas fa-play"></i></div></div>
+                <div class="video-info"><h4>Publicité BB Charwarma</h4></div>
+            </div>
+            <div class="video-card reveal" onclick="openVideo('bKPFd562aJA')">
+                <img class="video-thumb" src="https://img.youtube.com/vi/bKPFd562aJA/maxresdefault.jpg" alt="Documentaire Côte d'Ivoire" loading="lazy">
+                <div class="video-play"><div class="video-play-btn"><i class="fas fa-play"></i></div></div>
+                <div class="video-info"><h4>Documentaire Côte d'Ivoire</h4></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ====== EXPERIENCE ====== -->
+<div class="divider"></div>
+<section class="section" id="experience">
+    <div class="container">
+        <div class="section-header reveal">
+            <div class="section-label">Parcours</div>
+            <h2 class="section-title">Mon<br>expérience.</h2>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item reveal">
+                <span class="timeline-date">Mai 2026 — Présent</span>
+                <h4>Concepteur Graphique & Visuel Freelance</h4>
+                <div class="tl-company">Invictus Agency — Yamoussoukro</div>
+                <ul>
+                    <li>Conception d'identités visuelles (logos, chartes graphiques, déclinaisons print/digital)</li>
+                    <li>Production de supports de marque et d'événement</li>
+                    <li>Garant de la cohérence des livrables multi-supports</li>
+                </ul>
+            </div>
+            <div class="timeline-item reveal">
+                <span class="timeline-date">Avril 2025 — Présent</span>
+                <h4>Chargé de Marketing Digital</h4>
+                <div class="tl-company">Yamoussoukro</div>
+                <ul>
+                    <li>Création et déclinaison de contenus social media</li>
+                    <li>Participation aux campagnes et publicités en ligne</li>
+                    <li>Animation de pages : modération, engagement, régularité éditoriale</li>
+                </ul>
+            </div>
+            <div class="timeline-item reveal">
+                <span class="timeline-date">Août 2023 — Présent</span>
+                <h4>Opérateur en Sérigraphie Numérique</h4>
+                <div class="tl-company">Chez Kouadio K. Théodore — Yamoussoukro</div>
+                <ul>
+                    <li>Préparation de fichiers et adaptation des visuels pour impression</li>
+                    <li>Suivi de production : lancement, contrôle qualité, respect des délais</li>
+                    <li>Prospection & suivi de projets de design de A à Z</li>
+                </ul>
+            </div>
+            <div class="timeline-item reveal">
+                <span class="timeline-date">2022 — 2025</span>
+                <h4>Responsable Événementiel & Directeur Artistique</h4>
+                <div class="tl-company">Projets & Événements — Yamoussoukro</div>
+                <ul>
+                    <li>Organisation d'événements : BAL Heleis 2023, PICNIC DAY 2025</li>
+                    <li>Direction artistique de projets vidéo dont Yakro City</li>
+                    <li>Appui logistique : Happy Run 2022 & 2024</li>
+                </ul>
+            </div>
+            <div class="timeline-item reveal">
+                <span class="timeline-date">Juil. 2024 — Oct. 2024</span>
+                <h4>Infographe & Photographe</h4>
+                <div class="tl-company">Loukou Event Studio — Yamoussoukro</div>
+                <ul>
+                    <li>Couverture médiatique d'événements</li>
+                    <li>Création de supports graphiques PAO/édition</li>
+                </ul>
+            </div>
+            <div class="timeline-item reveal">
+                <span class="timeline-date">Mai 2024 — Juil. 2024</span>
+                <h4>Réceptionniste</h4>
+                <div class="tl-company">Mirabelle Hôtel — Yamoussoukro</div>
+                <ul><li>Accueil, réservations, caisse et suivi administratif</li></ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ====== SKILLS ====== -->
+<div class="divider"></div>
+<section class="section" id="skills">
+    <div class="container">
+        <div class="section-header reveal">
+            <div class="section-label">Compétences</div>
+            <h2 class="section-title">Mon<br>expertise.</h2>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-bar reveal" data-pct="95"><div class="skill-bar-header"><span class="skill-bar-name">Adobe Photoshop</span><span class="skill-bar-pct">95%</span></div><div class="skill-bar-track"><div class="skill-bar-fill"></div></div></div>
+            <div class="skill-bar reveal" data-pct="90"><div class="skill-bar-header"><span class="skill-bar-name">Adobe Illustrator</span><span class="skill-bar-pct">90%</span></div><div class="skill-bar-track"><div class="skill-bar-fill"></div></div></div>
+            <div class="skill-bar reveal" data-pct="85"><div class="skill-bar-header"><span class="skill-bar-name">Adobe Premiere Pro</span><span class="skill-bar-pct">85%</span></div><div class="skill-bar-track"><div class="skill-bar-fill"></div></div></div>
+            <div class="skill-bar reveal" data-pct="92"><div class="skill-bar-header"><span class="skill-bar-name">Canva</span><span class="skill-bar-pct">92%</span></div><div class="skill-bar-track"><div class="skill-bar-fill"></div></div></div>
+            <div class="skill-bar reveal" data-pct="88"><div class="skill-bar-header"><span class="skill-bar-name">Communication Digitale</span><span class="skill-bar-pct">88%</span></div><div class="skill-bar-track"><div class="skill-bar-fill"></div></div></div>
+            <div class="skill-bar reveal" data-pct="92"><div class="skill-bar-header"><span class="skill-bar-name">Branding</span><span class="skill-bar-pct">92%</span></div><div class="skill-bar-track"><div class="skill-bar-fill"></div></div></div>
+            <div class="skill-bar reveal" data-pct="87"><div class="skill-bar-header"><span class="skill-bar-name">Direction Artistique</span><span class="skill-bar-pct">87%</span></div><div class="skill-bar-track"><div class="skill-bar-fill"></div></div></div>
+            <div class="skill-bar reveal" data-pct="80"><div class="skill-bar-header"><span class="skill-bar-name">Marketing Digital</span><span class="skill-bar-pct">80%</span></div><div class="skill-bar-track"><div class="skill-bar-fill"></div></div></div>
+            <div class="skill-bar reveal" data-pct="78"><div class="skill-bar-header"><span class="skill-bar-name">Prompt Engineering</span><span class="skill-bar-pct">78%</span></div><div class="skill-bar-track"><div class="skill-bar-fill"></div></div></div>
+            <div class="skill-bar reveal" data-pct="75"><div class="skill-bar-header"><span class="skill-bar-name">IA & Productivité</span><span class="skill-bar-pct">75%</span></div><div class="skill-bar-track"><div class="skill-bar-fill"></div></div></div>
+            <div class="skill-bar reveal" data-pct="85"><div class="skill-bar-header"><span class="skill-bar-name">Community Management</span><span class="skill-bar-pct">85%</span></div><div class="skill-bar-track"><div class="skill-bar-fill"></div></div></div>
+        </div>
+    </div>
+</section>
+
+<!-- ====== CERTIFICATIONS ====== -->
+<div class="divider"></div>
+<section class="section" id="certifications">
+    <div class="container">
+        <div class="section-header reveal">
+            <div class="section-label">Certifications</div>
+            <h2 class="section-title">Formation<br>continue.</h2>
+        </div>
+        <div class="certs-grid">
+            <div class="cert-card reveal">
+                <div class="cert-icon"><i class="fas fa-bullhorn"></i></div>
+                <div><h5>Marketing Digital</h5><span class="cert-org">Accenture — Future Learn, Déc. 2025</span></div>
+            </div>
+            <div class="cert-card reveal">
+                <div class="cert-icon"><i class="fas fa-brain"></i></div>
+                <div><h5>Foundation of Prompt Engineering</h5><span class="cert-org">AWS Training Online, Oct. 2025</span></div>
+            </div>
+            <div class="cert-card reveal">
+                <div class="cert-icon"><i class="fab fa-linkedin"></i></div>
+                <div><h5>IA & Organisation</h5><span class="cert-org">LinkedIn Learning, Oct. 2025</span></div>
+            </div>
+            <div class="cert-card reveal">
+                <div class="cert-icon"><i class="fas fa-shield-alt"></i></div>
+                <div><h5>Cybercriminalité</h5><span class="cert-org">ONUDC/UNODC, Juin 2026</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ====== CV ====== -->
+<div class="divider"></div>
+<section class="section" id="cv">
+    <div class="container">
+        <div class="cv-grid">
+            <div class="cv-preview reveal">
+                <div class="cv-placeholder">
+                    <i class="fas fa-file-pdf"></i>
+                    <p>CV — Kouassi Bignon</p>
+                    <p style="font-size:.8rem; margin-top:8px; color:var(--gray2);">Cliquez sur le bouton pour télécharger</p>
+                </div>
+            </div>
+            <div class="cv-info reveal">
+                <div class="section-label">Curriculum Vitae</div>
+                <h3>Téléchargez<br>mon CV complet.</h3>
+                <p>Retrouvez l'ensemble de mon parcours professionnel, mes formations, certifications et compétences détaillées dans mon CV téléchargeable.</p>
+                <a href="CV KOUASSI BIGNON _Résumé.pdf" download class="btn btn-primary"><i class="fas fa-download"></i> Télécharger mon CV</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ====== CONTACT ====== -->
+<div class="divider"></div>
+<section class="section" id="contact">
+    <div class="container">
+        <div class="section-header reveal">
+            <div class="section-label">Contact</div>
+            <h2 class="section-title">Travaillons<br>ensemble.</h2>
+            <p class="section-subtitle">Vous avez un projet créatif en tête ? Discutons-en.</p>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-cards reveal">
+                <a href="tel:+2250506652583" class="contact-card">
+                    <div class="contact-card-icon"><i class="fas fa-phone"></i></div>
+                    <div><div class="cc-label">Téléphone</div><div class="cc-value">+225 05 06 65 25 83</div></div>
+                </a>
+                <a href="mailto:bignonkouassi@gmail.com" class="contact-card">
+                    <div class="contact-card-icon"><i class="fas fa-envelope"></i></div>
+                    <div><div class="cc-label">Email</div><div class="cc-value">bignonkouassi@gmail.com</div></div>
+                </a>
+                <a href="#" class="contact-card">
+                    <div class="contact-card-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <div><div class="cc-label">Localisation</div><div class="cc-value">Yamoussoukro, Côte d'Ivoire</div></div>
+                </a>
+                <div class="contact-socials">
+                    <a href="https://wa.me/2250506652583" target="_blank" class="social-btn" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.facebook.com/share/18gFDCPWDR/?mibextid=wwXIfr" target="_blank" class="social-btn" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.linkedin.com/in/bignon-kouassi-57311938a" target="_blank" class="social-btn" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="mailto:bignonkouassi@gmail.com" class="social-btn" title="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            <div class="contact-cards reveal">
+                <div class="contact-card" style="flex-direction:column; align-items:stretch; gap:20px; cursor:default;">
+                    <h4 style="font-family:var(--font-heading); font-size:1.2rem; font-weight:600; color:var(--pure-white);">Envoyez-moi un message</h4>
+                    <form onsubmit="handleForm(event)" style="display:flex; flex-direction:column; gap:14px;">
+                        <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
+                            <input type="text" placeholder="Votre nom" required style="padding:14px 18px; background:var(--black2); border:1px solid var(--glass-border); border-radius:var(--radius-sm); color:var(--light); font-family:var(--font-body); font-size:.92rem; outline:none; transition:border-color .3s;">
+                            <input type="email" placeholder="Votre email" required style="padding:14px 18px; background:var(--black2); border:1px solid var(--glass-border); border-radius:var(--radius-sm); color:var(--light); font-family:var(--font-body); font-size:.92rem; outline:none; transition:border-color .3s;">
+                        </div>
+                        <input type="text" placeholder="Sujet" style="padding:14px 18px; background:var(--black2); border:1px solid var(--glass-border); border-radius:var(--radius-sm); color:var(--light); font-family:var(--font-body); font-size:.92rem; outline:none; transition:border-color .3s;">
+                        <textarea placeholder="Décrivez votre projet..." rows="4" style="padding:14px 18px; background:var(--black2); border:1px solid var(--glass-border); border-radius:var(--radius-sm); color:var(--light); font-family:var(--font-body); font-size:.92rem; outline:none; resize:vertical; transition:border-color .3s;"></textarea>
+                        <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;"><i class="fas fa-paper-plane"></i> Envoyer le message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ====== FOOTER ====== -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-logo">KB<span>.</span></div>
+            <p class="footer-copy">© 2026 <a href="#hero">Kouassi Bignon</a>. Tous droits réservés.</p>
+            <a href="#hero" class="back-top"><i class="fas fa-arrow-up"></i></a>
+        </div>
+    </div>
+</footer>
+
+<!-- ====== DRIVE MODAL ====== -->
+<div class="modal-overlay" id="driveModal">
+    <div class="drive-modal">
+        <div class="drive-modal-header">
+            <h3 id="driveTitle">Portfolio</h3>
+            <a id="driveLink" href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Ouvrir dans Drive</a>
+        </div>
+        <div class="drive-modal-body">
+            <iframe id="driveIframe" src="" loading="lazy"></iframe>
+        </div>
+    </div>
+    <button class="modal-close" onclick="closeDrive()"><i class="fas fa-times"></i></button>
+</div>
+
+<!-- ====== VIDEO MODAL ====== -->
+<div class="modal-overlay" id="videoModal">
+    <div class="video-modal">
+        <iframe id="videoIframe" src="" allow="autoplay; encrypted-media" allowfullscreen loading="lazy"></iframe>
+    </div>
+    <button class="modal-close" onclick="closeVideo()"><i class="fas fa-times"></i></button>
+</div>
+
+<script>
+/* ============================================
+   LOADER
+   ============================================ */
+window.addEventListener('DOMContentLoaded', () => {
+    const fill = document.getElementById('loaderFill');
+    const loader = document.getElementById('loader');
+    fill.style.width = '100%';
+    setTimeout(() => { loader.classList.add('done'); }, 1400);
+});
+
+/* ============================================
+   CUSTOM CURSOR
+   ============================================ */
+const cursor = document.getElementById('cursor');
+const cursorDot = document.getElementById('cursorDot');
+if (window.innerWidth > 768) {
+    document.addEventListener('mousemove', e => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+        cursorDot.style.left = e.clientX + 'px';
+        cursorDot.style.top = e.clientY + 'px';
+    });
+    document.querySelectorAll('a, button, .portfolio-card, .video-card, .service-card').forEach(el => {
+        el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+        el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+    });
+}
+
+/* ============================================
+   NAVIGATION
+   ============================================ */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); });
+
+const burger = document.getElementById('navBurger');
+const mobileMenu = document.getElementById('mobileMenu');
+burger.addEventListener('click', () => {
+    burger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+});
+mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+        burger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+        document.body.style.overflow = '';
+    });
+});
+
+/* ============================================
+   GSAP ANIMATIONS
+   ============================================ */
+gsap.registerPlugin(ScrollTrigger);
+
+// Reveal elements
+document.querySelectorAll('.reveal').forEach(el => {
+    gsap.fromTo(el, { opacity: 0, y: 40 }, {
+        opacity: 1, y: 0,
+        duration: 0.8,
+        ease: 'power3.out',
+        scrollTrigger: { trigger: el, start: 'top 88%', once: true }
+    });
+});
+
+// Counter animation
+document.querySelectorAll('.counter').forEach(counter => {
+    const target = parseInt(counter.dataset.target);
+    ScrollTrigger.create({
+        trigger: counter,
+        start: 'top 85%',
+        once: true,
+        onEnter: () => {
+            gsap.to(counter, {
+                innerText: target,
+                duration: 2,
+                ease: 'power2.out',
+                snap: { innerText: 1 },
+                onUpdate: function() { counter.textContent = Math.round(this.targets()[0].innerText || 0); }
+            });
+        }
+    });
+});
+
+// Skill bars
+document.querySelectorAll('.skill-bar').forEach(bar => {
+    const pct = bar.dataset.pct;
+    const fill = bar.querySelector('.skill-bar-fill');
+    ScrollTrigger.create({
+        trigger: bar,
+        start: 'top 88%',
+        once: true,
+        onEnter: () => { fill.style.width = pct + '%'; }
+    });
+});
+
+// Hero parallax
+gsap.to('.hero-bg::before', {
+    y: -100,
+    scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 }
+});
+
+// Timeline stagger
+gsap.utils.toArray('.timeline-item').forEach((item, i) => {
+    gsap.fromTo(item, { opacity: 0, x: -30 }, {
+        opacity: 1, x: 0,
+        duration: 0.7,
+        delay: i * 0.1,
+        ease: 'power3.out',
+        scrollTrigger: { trigger: item, start: 'top 88%', once: true }
+    });
+});
+
+/* ============================================
+   DRIVE MODAL
+   ============================================ */
+function openDrive(title, url) {
+    const modal = document.getElementById('driveModal');
+    document.getElementById('driveTitle').textContent = title;
+    document.getElementById('driveLink').href = url;
+    // Try to embed Drive folder
+    const embedUrl = url.replace('/drive/folders/', '/embed/u/0/folders/');
+    document.getElementById('driveIframe').src = embedUrl;
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeDrive() {
+    const modal = document.getElementById('driveModal');
+    modal.classList.remove('active');
+    document.getElementById('driveIframe').src = '';
+    document.body.style.overflow = '';
+}
+
+/* ============================================
+   VIDEO MODAL
+   ============================================ */
+function openVideo(id) {
+    const modal = document.getElementById('videoModal');
+    document.getElementById('videoIframe').src = `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeVideo() {
+    const modal = document.getElementById('videoModal');
+    modal.classList.remove('active');
+    document.getElementById('videoIframe').src = '';
+    document.body.style.overflow = '';
+}
+
+// Close modals on backdrop click
+document.querySelectorAll('.modal-overlay').forEach(overlay => {
+    overlay.addEventListener('click', e => {
+        if (e.target === overlay) {
+            closeDrive();
+            closeVideo();
+        }
+    });
+});
+
+// Close on ESC
+document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') { closeDrive(); closeVideo(); }
+});
+
+/* ============================================
+   FORM
+   ============================================ */
+function handleForm(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button');
+    btn.innerHTML = '<i class="fas fa-check"></i> Message envoyé !';
+    btn.style.background = '#10b981';
+    setTimeout(() => {
+        btn.innerHTML = '<i class="fas fa-paper-plane"></i> Envoyer le message';
+        btn.style.background = '';
+        e.target.reset();
+    }, 3000);
+}
+
+/* ============================================
+   SMOOTH SCROLL
+   ============================================ */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+});
+</script>
+
+</body>
+</html>

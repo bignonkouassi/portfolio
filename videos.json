@@ -1,0 +1,29 @@
+[
+    {
+        "id": "yakro-city",
+        "title": "Yakro City",
+        "description": "Direction artistique du projet vidéo Yakro City, mettant en valeur la ville de Yamoussoukro.",
+        "category": "video",
+        "youtube": "",
+        "vimeo": "",
+        "thumb": "realisations/video/yakro-city-thumb.jpg"
+    },
+    {
+        "id": "bal-heleis-2023",
+        "title": "BAL de Fin d'année — Heleis 2023",
+        "description": "Aftermovie et couverture vidéo du BAL de fin d'année du Collège Heleis.",
+        "category": "video",
+        "youtube": "",
+        "vimeo": "",
+        "thumb": "realisations/video/bal-heleis-thumb.jpg"
+    },
+    {
+        "id": "picnic-day-2025",
+        "title": "PICNIC DAY 2025",
+        "description": "Aftermovie du PICNIC DAY 2025 à Yamoussoukro.",
+        "category": "video",
+        "youtube": "",
+        "vimeo": "",
+        "thumb": "realisations/video/picnic-day-thumb.jpg"
+    }
+]
