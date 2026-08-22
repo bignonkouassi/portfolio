@@ -927,16 +927,16 @@
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
+            gap: 18px;
         }
         .portfolio-card {
             position: relative;
             background: var(--dark2);
             border: 1px solid rgba(255,255,255,0.04);
-            border-radius: var(--radius-lg);
+            border-radius: var(--radius);
             overflow: hidden;
             cursor: pointer;
-            aspect-ratio: 16/10;
+            aspect-ratio: 16/8;
             transition: all 0.4s var(--ease);
         }
         .portfolio-card:hover, .portfolio-card:focus-visible {
@@ -958,7 +958,7 @@
             position: absolute; inset: 0;
             display: flex; flex-direction: column;
             justify-content: flex-end;
-            padding: 36px;
+            padding: 24px;
             background: linear-gradient(180deg, transparent 30%, rgba(5,5,5,0.8) 100%);
             z-index: 2;
             pointer-events: none;
@@ -978,28 +978,28 @@
         }
         .portfolio-card h3 {
             font-family: var(--font-heading);
-            font-size: 1.6rem;
+            font-size: 1.3rem;
             font-weight: 700;
             color: var(--pure-white);
             letter-spacing: -0.5px;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
         .portfolio-card p {
-            font-size: 0.88rem;
+            font-size: 0.82rem;
             color: var(--gray);
-            line-height: 1.6;
+            line-height: 1.5;
             max-width: 400px;
         }
         .portfolio-card-arrow {
-            position: absolute; top: 24px; right: 24px;
-            width: 44px; height: 44px;
+            position: absolute; top: 16px; right: 16px;
+            width: 36px; height: 36px;
             background: var(--glass);
             border: 1px solid var(--glass-border);
             backdrop-filter: blur(10px);
             border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
             color: var(--pure-white);
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             transition: all 0.3s;
             z-index: 3;
             pointer-events: none;
