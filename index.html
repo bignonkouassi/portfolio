@@ -297,6 +297,60 @@
             padding: 2px 8px;
             border-radius: 20px;
         }
+        .nav-theme {
+            width: 40px; height: 40px;
+            display: flex; align-items: center; justify-content: center;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 50%;
+            color: var(--gray);
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s var(--ease);
+        }
+        .nav-theme:hover {
+            border-color: var(--accent);
+            color: var(--accent-light);
+            background: var(--accent-subtle);
+        }
+
+        /* ============================================
+           LIGHT THEME
+           ============================================ */
+        body.light {
+            --black: #f5f5f7;
+            --black2: #ffffff;
+            --dark: #f0f0f2;
+            --dark2: #e8e8ec;
+            --dark3: #dddde0;
+            --gray: #666666;
+            --gray2: #999999;
+            --light: #333333;
+            --white: #111111;
+            --pure-white: #000000;
+
+            --glass: rgba(0, 0, 0, 0.03);
+            --glass-border: rgba(0, 0, 0, 0.08);
+            --glass-hover: rgba(0, 0, 0, 0.05);
+        }
+        body.light .cursor { border-color: var(--accent-dark); }
+        body.light .cursor-dot { background: var(--accent-dark); }
+        body.light .hero-glow-1 { opacity: 0.15; }
+        body.light .hero-glow-2 { opacity: 0.1; }
+        body.light .hero-grid-pattern {
+            background-image:
+                linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+        }
+        body.light .nav.scrolled {
+            background: rgba(245, 245, 247, 0.85);
+        }
+        body.light .mobile-menu {
+            background: rgba(245, 245, 247, 0.97);
+        }
+        body.light .hero-photo-frame img { filter: grayscale(0%) contrast(1.05); }
+        body.light .loader { background: var(--black); }
+        body.light ::-webkit-scrollbar-track { background: var(--black); }
         .nav-burger {
             display: none;
             flex-direction: column; gap: 6px;
@@ -1422,6 +1476,9 @@
         <li><a href="#contact">Contact</a></li>
     </ul>
     <div style="display:flex; align-items:center; gap:12px;">
+        <button class="nav-theme" id="themeToggle" aria-label="Changer de thème">
+            <i class="fas fa-moon" id="themeIcon"></i>
+        </button>
         <button class="nav-lang" id="langToggle" aria-label="Changer de langue">
             <span class="lang-active" id="langFR">FR</span>
             <span id="langEN">EN</span>
@@ -2538,6 +2595,27 @@ document.getElementById('langToggle').addEventListener('click', () => {
 
 // Apply saved language on load
 setLanguage(currentLang);
+
+/* ============================================
+   THEME TOGGLE — Light / Dark
+   ============================================ */
+const themeToggle = document.getElementById('themeToggle');
+const themeIcon = document.getElementById('themeIcon');
+
+function setTheme(theme) {
+    document.body.classList.toggle('light', theme === 'light');
+    themeIcon.className = theme === 'light' ? 'fas fa-sun' : 'fas fa-moon';
+    localStorage.setItem('kb-theme', theme);
+}
+
+// Apply saved theme on load
+const savedTheme = localStorage.getItem('kb-theme') || 'dark';
+setTheme(savedTheme);
+
+themeToggle.addEventListener('click', () => {
+    const current = document.body.classList.contains('light') ? 'light' : 'dark';
+    setTheme(current === 'dark' ? 'light' : 'dark');
+});
 </script>
 
 </body>
