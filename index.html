@@ -1466,7 +1466,7 @@
 
 <!-- NAV -->
 <nav class="nav" id="nav" role="navigation" aria-label="Navigation principale">
-    <a href="#hero" class="nav-logo" aria-label="Retour à l'accueil"><img src="logo.png" alt="KB Logo" style="height:40px; width:auto; display:block;"></a>
+    <a href="#hero" class="nav-logo" aria-label="Retour à l'accueil"><img src="logo-dark.png" alt="KB Logo" id="navLogoImg" style="height:40px; width:auto; display:block;"></a>
     <ul class="nav-links">
         <li><a href="#about">À propos</a></li>
         <li><a href="#services">Services</a></li>
@@ -1957,7 +1957,7 @@
 <footer class="footer">
     <div class="container">
         <div class="footer-content">
-            <a href="#hero" class="footer-logo" aria-label="Retour à l'accueil"><img src="logo.png" alt="KB Logo" style="height:36px; width:auto; display:block;"></a>
+            <a href="#hero" class="footer-logo" aria-label="Retour à l'accueil"><img src="logo-dark.png" alt="KB Logo" id="footerLogoImg" style="height:36px; width:auto; display:block;"></a>
             <p class="footer-copy">© 2026 <a href="#hero">Kouassi Bignon</a>. Tous droits réservés.</p>
             <a href="#hero" class="back-top" aria-label="Retour en haut"><i class="fas fa-arrow-up" aria-hidden="true"></i></a>
         </div>
@@ -2606,6 +2606,10 @@ function setTheme(theme) {
     document.body.classList.toggle('light', theme === 'light');
     themeIcon.className = theme === 'light' ? 'fas fa-sun' : 'fas fa-moon';
     localStorage.setItem('kb-theme', theme);
+    // Switch logos
+    const logoFile = theme === 'light' ? 'logo-light.png' : 'logo-dark.png';
+    document.getElementById('navLogoImg').src = logoFile;
+    document.getElementById('footerLogoImg').src = logoFile;
 }
 
 // Apply saved theme on load
