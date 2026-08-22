@@ -396,6 +396,8 @@
         /* Portfolio */
         body.light .portfolio-card { background: var(--black2); border-color: rgba(0,0,0,0.06); }
         body.light .portfolio-card:hover { border-color: rgba(124,92,252,0.25); box-shadow: 0 20px 60px rgba(0,0,0,0.08); }
+        body.light .portfolio-card-bg { color: var(--accent-dark); opacity: 0.03; }
+        body.light .portfolio-card:hover .portfolio-card-bg { opacity: 0.05; }
         body.light .portfolio-card-content { background: linear-gradient(180deg, transparent 30%, rgba(255,255,255,0.85) 100%); }
         body.light .portfolio-card h3 { color: var(--pure-white); }
         body.light .portfolio-card p { color: var(--gray); }
@@ -947,13 +949,13 @@
         .portfolio-card-bg {
             position: absolute; inset: 0;
             display: flex; align-items: center; justify-content: center;
-            font-size: 5rem;
+            font-size: 3.5rem;
             color: var(--accent);
-            opacity: 0.06;
+            opacity: 0.04;
             transition: all 0.4s;
             pointer-events: none;
         }
-        .portfolio-card:hover .portfolio-card-bg { opacity: 0.1; transform: scale(1.1); }
+        .portfolio-card:hover .portfolio-card-bg { opacity: 0.07; transform: scale(1.1); }
         .portfolio-card-content {
             position: absolute; inset: 0;
             display: flex; flex-direction: column;
@@ -1811,6 +1813,7 @@
             <div class="portfolio-card reveal" role="button" tabindex="0" aria-label="Voir les projets Branding"
                  onclick="openDrive('Branding', 'https://drive.google.com/drive/folders/1iTrUUUOPGGUfc5KK-RLnoPKsfZG0XclE')"
                  onkeydown="if(event.key==='Enter')openDrive('Branding','https://drive.google.com/drive/folders/1iTrUUUOPGGUfc5KK-RLnoPKsfZG0XclE')">
+                <div class="portfolio-card-bg" aria-hidden="true"><i class="fas fa-gem"></i></div>
                 <div class="portfolio-card-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></div>
                 <div class="portfolio-card-content">
                     <div class="portfolio-card-cat"><i class="fas fa-gem" aria-hidden="true"></i> Branding</div>
@@ -1821,6 +1824,7 @@
             <div class="portfolio-card reveal" role="button" tabindex="0" aria-label="Voir les projets Logos"
                  onclick="openDrive('Logos', 'https://drive.google.com/drive/folders/167Q2G4sUgtAhHv2HO6AMXyzAZ6Jgtf0M')"
                  onkeydown="if(event.key==='Enter')openDrive('Logos','https://drive.google.com/drive/folders/167Q2G4sUgtAhHv2HO6AMXyzAZ6Jgtf0M')">
+                <div class="portfolio-card-bg" aria-hidden="true"><i class="fas fa-pen-nib"></i></div>
                 <div class="portfolio-card-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></div>
                 <div class="portfolio-card-content">
                     <div class="portfolio-card-cat"><i class="fas fa-pen-nib" aria-hidden="true"></i> Logos</div>
@@ -1831,6 +1835,7 @@
             <div class="portfolio-card reveal" role="button" tabindex="0" aria-label="Voir les projets Flyers"
                  onclick="openDrive('Flyers', 'https://drive.google.com/drive/folders/1g0cBpWiQtell3kSsx-L4Yx23JVlp7PXj')"
                  onkeydown="if(event.key==='Enter')openDrive('Flyers','https://drive.google.com/drive/folders/1g0cBpWiQtell3kSsx-L4Yx23JVlp7PXj')">
+                <div class="portfolio-card-bg" aria-hidden="true"><i class="fas fa-file-image"></i></div>
                 <div class="portfolio-card-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></div>
                 <div class="portfolio-card-content">
                     <div class="portfolio-card-cat"><i class="fas fa-file-image" aria-hidden="true"></i> Flyers</div>
@@ -1841,6 +1846,7 @@
             <div class="portfolio-card reveal" role="button" tabindex="0" aria-label="Voir les projets Sérigraphie"
                  onclick="openDrive('Sérigraphie', 'https://drive.google.com/drive/folders/1df5bfavnB5eRlxELKXHhLdGcIIJQ6MCX')"
                  onkeydown="if(event.key==='Enter')openDrive('Sérigraphie','https://drive.google.com/drive/folders/1df5bfavnB5eRlxELKXHhLdGcIIJQ6MCX')">
+                <div class="portfolio-card-bg" aria-hidden="true"><i class="fas fa-tshirt"></i></div>
                 <div class="portfolio-card-arrow" aria-hidden="true"><i class="fas fa-arrow-right"></i></div>
                 <div class="portfolio-card-content">
                     <div class="portfolio-card-cat"><i class="fas fa-tshirt" aria-hidden="true"></i> Sérigraphie</div>
@@ -2092,7 +2098,7 @@
             <a id="driveLink" href="#" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt" aria-hidden="true"></i> Ouvrir dans Drive</a>
         </div>
         <div class="drive-modal-body" id="driveBody">
-            <iframe id="driveIframe" src="" loading="lazy" title="Galerie Google Drive"></iframe>
+            <iframe id="driveIframe" src="" loading="lazy" title="Galerie Google Drive" style="display:none;"></iframe>
         </div>
     </div>
     <button class="modal-close" onclick="closeDrive()" aria-label="Fermer"><i class="fas fa-times" aria-hidden="true"></i></button>
@@ -2271,20 +2277,27 @@ function openDrive(title, url) {
         embedUrl = `https://drive.google.com/embeddedfolderview?id=${folderId[1]}#list`;
     }
 
-    // Reset body
-    body.innerHTML = `<iframe id="driveIframe" src="${embedUrl}" loading="lazy" title="Galerie Google Drive"></iframe>`;
+    // Reuse existing iframe
+    const iframe = document.getElementById('driveIframe');
+    iframe.src = embedUrl;
+    iframe.style.display = 'block';
+
+    // Remove any previous fallback
+    const prevFallback = body.querySelector('.drive-fallback');
+    if (prevFallback) prevFallback.remove();
 
     // Fallback: if iframe fails to load after 5s, show direct link
-    const iframe = document.getElementById('driveIframe');
     const fallbackTimer = setTimeout(() => {
-        body.innerHTML = `
-            <div class="drive-fallback">
-                <i class="fas fa-folder-open"></i>
-                <p>La galerie ne peut pas être intégrée directement.<br>Cliquez ci-dessous pour ouvrir dans Google Drive.</p>
-                <a href="${url}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="display:inline-flex;">
-                    <i class="fas fa-external-link-alt"></i> Ouvrir dans Google Drive
-                </a>
-            </div>`;
+        iframe.style.display = 'none';
+        const fallbackDiv = document.createElement('div');
+        fallbackDiv.className = 'drive-fallback';
+        fallbackDiv.innerHTML = `
+            <i class="fas fa-folder-open"></i>
+            <p>La galerie ne peut pas être intégrée directement.<br>Cliquez ci-dessous pour ouvrir dans Google Drive.</p>
+            <a href="${url}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="display:inline-flex;">
+                <i class="fas fa-external-link-alt"></i> Ouvrir dans Google Drive
+            </a>`;
+        body.appendChild(fallbackDiv);
     }, 5000);
 
     iframe.addEventListener('load', () => {
@@ -2300,8 +2313,11 @@ function openDrive(title, url) {
 function closeDrive() {
     const modal = document.getElementById('driveModal');
     modal.classList.remove('active');
-    const body = document.getElementById('driveBody');
-    body.innerHTML = '';
+    const iframe = document.getElementById('driveIframe');
+    iframe.src = '';
+    iframe.style.display = 'none';
+    const fallback = document.getElementById('driveBody').querySelector('.drive-fallback');
+    if (fallback) fallback.remove();
     document.body.style.overflow = '';
 }
 
